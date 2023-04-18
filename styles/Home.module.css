@@ -1,116 +1,849 @@
-.container {
-  padding: 0 2rem;
-}
+/* Universal CSS Styles */
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+.policy {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  align-self: center;
+  align-content: center;
+  max-width: 500px;
+  margin: 1rem auto 2rem auto;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.policy .links {
+  padding-bottom: 0;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+.policy p {
+  padding: 0 1rem;
 }
 
-.title a {
-  color: #0070f3;
+.refundLinks {
+  border-left: 1px white solid;
+  border-right: 1px white solid;
+}
+
+.links {
+  cursor: pointer;
+  color: inherit;
   text-decoration: none;
+  padding-bottom: 1rem;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.sociallinks {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  cursor: pointer;
+  /* transition: 0.3s ease-in; */
 }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+/* .sociallinks:hover {
+  width: 70px;
+  height: 70px;
+} */
+
+/* .sociallinks:active {
+  width: 45px;
+  height: 45px;
+} */
+
+footer .links {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.3s ease-in;
 }
 
-.title,
-.description {
+footer .links:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+}
+
+.flexColumn .whiteButton {
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  /* color: rgba(255, 255, 255, 0.75); */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: 0.2s ease-in-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.whiteButton {
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  /* color: rgba(255, 255, 255, 0.75); */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: 0.2s ease-in-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.blackButton {
+  border: 2px solid rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.75);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: 0.2s ease-in-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.mobileFlex {
+  width: 50%;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.whiteDivider {
+  border-radius: 5px;
+  border: #fff 1px solid;
+  width: 100%;
+}
+
+.blackDivider {
+  border-radius: 5px;
+  border: #000 1px solid;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.flexSize1 {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.flexSize2 {
+  flex: 1;
+  padding-left: 2rem;
   text-align: center;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
+.flexColumn {
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.container {
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.textContainer {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto 20% auto;
+}
+
+.logoContainer {
+  width: fit-content;
+  margin: auto;
+}
+
+.imgContainer {
+  width: auto;
+  height: auto;
+  max-height: 600px;
+  flex: 1;
+}
+
+.centerAdjustment {
   align-items: center;
   justify-content: center;
+}
+
+/* NavBar CSS */
+
+.LogoHover {
+  cursor: pointer;
+}
+
+.hamburgerMenu {
+  width: 100%;
+  list-style: none;
+  transition: 0.3s ease-in;
+  position: absolute;
+  background-color: var(--secondary-Color);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.hamburgerMenu a {
+  text-align: center;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 800;
+}
+
+.hamburgerMenu a:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.closeMenu {
+  opacity: 0;
+  top: -100px;
+}
+
+.openMenu {
+  opacity: 1;
+  top: 70px;
+  padding-bottom: 1rem;
+}
+
+.cartItemDisplay {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background-color: var(--Fourth-Color);
+  color: #fff;
+  border-radius: 50%;
+  padding: 0 6px;
+  font-weight: 500;
+}
+
+/* Hero CSS */
+
+.hero {
+  height: 94vh;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 800px;
+}
+
+.hero div {
+  /* height: 500px; */
+}
+
+.heroLogoImgWidth {
+  width: 100%;
+}
+
+.hero .flexColumn {
+  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+}
+
+.heroImgSize {
+  height: min-content;
+  margin: 15vh auto 10vh auto;
+}
+
+.heroLogoImgSize {
+  width: 70%;
+  margin: 0 auto 2rem auto;
+}
+
+.heroWritingImgLogoSize {
+  width: 80%;
+  margin: auto;
+}
+
+.heroImgsize {
+  flex: 1;
+  max-width: 1200px;
+  height: auto;
+  background-position: bottom 35% right 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../images/Hero/HeroImg.jpg);
+}
+
+/* About Candles CSS */
+
+.aboutCandlesBackground {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/CandleBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 4rem 0;
+}
+.aboutCandlesContainer {
+  background-color: var(--primary-Color);
+  color: var(--Fourth-Color);
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutCandles {
+  text-align: left;
+}
+
+.aboutCandles p {
+  padding-bottom: 0;
+}
+
+.aboutCandles li {
+  padding-bottom: 1rem;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.aboutCandlesTextContainer {
+  max-width: 1000px;
+  padding: 2rem 4rem;
+}
+
+.aboutCandlesTextContainer h1 {
+  padding-bottom: 1rem;
+}
+
+.imgContainerAbout {
+  min-width: 300px;
+  width: 80%;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+/* CANDLE CARE CSS */
+.candleCareBackground {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0.65)
+    ),
+    url(../images/CandleBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #000;
+  padding: 4rem 0;
+}
+
+.candleCareBackground h1 {
+  text-align: center;
+  color: var(--Fourth-Color);
+}
+
+.candleCaresContainer {
+  width: 80%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.candleCareImg {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.candleCaresContainer li {
+  padding-bottom: 0.5rem;
+}
+
+.candleCaresContainer ul {
+  padding-left: 1rem;
+}
+
+.candleCareTextContainer {
+  width: 80%;
+  padding: 1rem;
+  max-width: 500px;
+  margin: 0 auto 5rem auto;
+  background-color: rgba(217, 217, 217, 0.75);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease-in;
+}
+
+.candleCareTextContainer:hover {
+  background-color: rgba(217, 217, 217, 15);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+.candleCaresContainer h2 {
+  color: var(--Fourth-Color);
+}
+
+/* About ME CSS */
+.aboutMeContainer {
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Other Products CSS */
+
+.otherProductsBackground {
+  padding: 4rem 0;
+}
+
+/* Home Contact Form CSS */
+.homeContactFormBackground {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+
+  padding: 7rem 0;
+}
+
+/* Cards CSS */
+
+.cartFlex {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.cardContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5rem;
+}
+
+.cardContainer h1 {
+  text-align: center;
+  color: var(--Fourth-Color);
 }
 
 .card {
-  margin: 1rem;
-  padding: 1.5rem;
+  width: 250px;
+  height: 450px;
+  /* box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.25); */
+  margin: 1rem 2rem;
+  /* border-radius: 5px; */
+  overflow: hidden;
+}
+
+.cardImg {
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+}
+
+.cardText {
+  width: 90%;
+  margin: 1rem auto 0 auto;
+}
+
+.cardText h4 {
+  color: #3b865b;
+}
+
+.cardText h5 {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.cardText div {
+  width: 100%;
+  text-align: center;
+}
+
+/* Form CSS */
+
+.formWidth {
+  width: 40%;
+}
+
+.formWidth form label {
+  margin: 0rem auto 0.5rem auto;
+  width: max-content;
+}
+
+.formWidth form input {
+  width: 80%;
+  margin: 0rem auto 1rem auto;
+}
+
+.formWidth form textarea {
+  width: 80%;
+  margin: 0rem auto 1rem auto;
+}
+
+.formHeroWidth {
+  width: 40%;
+}
+
+/* Single Page Product CSS */
+.product-Img {
+  width: 35%;
+  max-width: 500px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.5);
+  height: min-content;
+}
+
+.productDescription {
   text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  margin-bottom: 2rem;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.productDescription h2 {
+  width: fit-content;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.productDescription h3 {
+  width: 100%;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.productDescription button {
+  margin: 1rem 0;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+/* Cart Card CSS */
+
+.cartBackground {
+  background-image: url(../images/CandleBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--Fourth-Color);
+  padding: 5rem 2rem;
 }
 
-@media (max-width: 600px) {
-  .grid {
+.cartConatiner {
+  max-width: 80%;
+  background-color: rgba(217, 217, 217, 0.75);
+  margin: 3rem auto;
+  /* padding: 5rem 2rem; */
+}
+
+.cartAside {
+  background-color: var(--aside-Color);
+  width: 20%;
+  height: 100%;
+}
+
+.cartFlexSize1 {
+  flex: 1;
+  padding: 2rem 1rem 2rem 2rem;
+}
+
+.cartFlexSize1 h1 {
+  padding: 3rem 3rem;
+}
+
+.cartFlexSize2 {
+  flex: 0.3;
+  padding: 2rem 1rem 2rem 1rem;
+  text-align: center;
+  min-height: 20vh;
+}
+
+.cartFlexOrder {
+  flex: 0.5;
+  text-align: center;
+}
+
+/* Contact Page */
+
+.contactBackground {
+  background: url(../images/CandleBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 8rem 0;
+}
+
+/* About Page */
+
+.aboutBackground {
+  background-color: var(--Fourth-Color);
+  padding: 5rem 0;
+}
+
+/* Loading Screen */
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 4.4px;
+  text-transform: capitalize;
+  overflow: hidden;
+}
+
+.loading::before {
+  color: var(--Fourth-Color);
+  content: attr(data-loading-text);
+}
+
+.loading::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  opacity: 1;
+  color: #444;
+  overflow: hidden;
+  content: attr(data-loading-text);
+  animation: loading 5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
     width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .flexSize1 {
+    min-width: 500px;
+  }
+
+  .productImg {
+    width: 50%;
+    max-width: 500px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.5);
+    height: min-content;
+    margin-bottom: 1rem;
+  }
+
+  .hero .flexColumn {
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    background-position: bottom 35% right 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.65),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/Hero/HeroImg.jpg);
+    height: 100%;
+  }
+
+  .heroImgsize {
+    flex: none;
+    height: auto;
+    background: none;
+    /* background-position: bottom 35% right 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(./images/HeroImg.jpg); */
+  }
+
+  #home-button {
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    /* color: rgba(255, 255, 255, 0.75); */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.65);
+    transition: 0.2s ease-in-out;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  /* Contact Page */
+
+  .contactBackground {
+    padding: 2rem 0;
+  }
+
+  /* About Page */
+
+  .aboutBackground {
+    background-color: var(--Fourth-Color);
+    padding: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .candleCareTextContainer {
+    margin: 0 auto 2rem auto;
+  }
+
+  .cartFlex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+  }
+
+  .cartFlexSize2 {
+    flex: 1;
+    padding: 2rem 1rem 2rem 1rem;
+    text-align: center;
+    min-height: 20vh;
+  }
+
+  .cartFlexSize1 {
+    flex: 1;
+    padding: 2rem 1rem 0 1rem;
+    text-align: center;
+    min-height: 20vh;
+  }
+
+  .flexSize1 {
+    flex: 1;
+    padding-right: 0;
+    margin-bottom: 1rem;
+    min-width: 400px;
+    overflow: hidden;
+  }
+
+  .flexSize2 {
+    flex: 1;
+    padding-left: 0;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .flexSize2 p {
+    margin: 1rem 0;
+  }
+
+  .aboutCandlesContainer {
+    padding: 1rem 0;
+  }
+
+  .imgContainerAbout {
+    min-width: 300px;
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  }
+
+  .aboutCandlesTextContainer {
+    max-width: 1000px;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .aboutCandlesBackground {
+    background-color: var(--Fourth-Color);
+    color: #fff;
+    padding: 2rem 0;
+  }
+
+  .aboutCandles {
+    text-align: center;
+    list-style-type: none;
+  }
+  .aboutCandles ul li {
+    padding-bottom: 1rem;
+  }
+
+  .aboutCandles p {
+    width: fit-content;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .candleCareTextContainer {
     flex-direction: column;
+  }
+
+  /* Other Products CSS */
+
+  .otherProducts-Background {
+    padding: 2rem 0;
+    flex-wrap: wrap-reverse;
+  }
+
+  .otherProductsBackground .flexSize1 {
+    padding-top: 2rem;
+  }
+
+  /* Home Contact Form CSS */
+  .homeContactFormBackground {
+    padding: 2rem 0;
+    flex-wrap: wrap-reverse;
+  }
+
+  #Home-Contact-Form h2 {
+    padding-top: 2rem;
+  }
+
+  .imgContainer {
+    width: auto;
+    height: auto;
+    max-height: 400px;
+    flex: 1;
+  }
+
+  /* ============================== */
+
+  .productImg {
+    width: 100%;
+    max-width: 500px;
+    box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.5);
+    height: min-content;
+    margin-bottom: 1rem;
+  }
+
+  .productDescription h2 {
+    width: 100%;
+  }
+  .productDescription div {
+    margin: auto;
+  }
+  .productDescription {
+    text-align: center;
+  }
+  #description {
+    text-align: left;
+  }
+
+  .formWidth {
+    width: 100%;
+  }
+  .formHeroWidth {
+    width: 100%;
+  }
+  .cartSection h2 {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .flexSize1 {
+    min-width: 300px;
+    overflow: hidden;
+  }
+  .imgContainerAbout {
+    min-width: none;
   }
 }

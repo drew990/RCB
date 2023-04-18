@@ -1,0 +1,35 @@
+.container {
+  padding: 5rem 10vw;
+  min-height: 83vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.contactDiv1 {
+  flex-basis: 600px;
+  padding: 1rem 0 3rem 0;
+}
+
+.contactDiv2 {
+  flex-basis: 600px;
+  text-align: center;
+  padding: 1rem 0;
+  height: fit-content;
+  background-color: var(--secondary-Color);
+  border-radius: 5px;
+}
+
+.conForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: auto;
+  align-content: center;
+}
+
+.conSection h3 {
+  padding: 2rem 0 0.5rem 0;
+}
