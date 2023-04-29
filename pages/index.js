@@ -1,24 +1,22 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import Hero from "../components/Hero/hero";
-import commerce from "../lib/commerce";
-import AboutProducts from "../components/AboutCandles";
-import AboutMe from "../components/AboutMe";
-import ContactForm from "../components/ContactForm";
-import ProductList from "../components/ProductList";
+
+import ComingSoon from "../components/ComingSoon";
 // { products }
 export default function Home() {
   return (
     <>
       <Head>
         <title>RCBrilliance - Home</title>
-        <meta name="description" content="RCBrilliance Home Page" />
+        <meta
+          name="description"
+          content="RCBrilliance - All my candles are made with care and love"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero />
+      <ComingSoon />
+      {/* <Hero />
       <AboutProducts />
-      <ProductList />
+      <ProductList /> */}
     </>
   );
 }

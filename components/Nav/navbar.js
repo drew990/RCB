@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/ComingSoon.module.css";
 import Logo from "../../images/Logo/Logo.png";
 import Image from "next/image";
 import basket from "../../images/cart.png";
@@ -32,27 +32,27 @@ const AppNavbar = () => {
   //   };
   // }, []);
 
-  useEffect(() => {
-    console.log("NAC");
+  // useEffect(() => {
+  //   console.log("NAC");
 
-    window.onstorage = (event) => {
-      console.log(event.key);
-    };
+  //   window.onstorage = (event) => {
+  //     console.log(event.key);
+  //   };
 
-    // let data = JSON.parse(localStorage.getItem("cart"));
-    // if (data != null) {
-    //   console.log("NAV DATA", data.length);
-    //   setCart(data.length);
-    // }
-    // setCart(0);
-  }, []);
+  // let data = JSON.parse(localStorage.getItem("cart"));
+  // if (data != null) {
+  //   console.log("NAV DATA", data.length);
+  //   setCart(data.length);
+  // }
+  // setCart(0);
+  // }, []);
 
   // const handleToggle = () => {
   //   setNavbarOpen(!navbarOpen);
   // };
 
   return (
-    <nav>
+    <nav className={styles.navBar}>
       <Link
         className={`${isOpen ? `${styles.mobileNav}` : ""} `}
         onClick={() => setOpen(false)}
@@ -62,21 +62,21 @@ const AppNavbar = () => {
           <Image src={Logo} width={85} height={45} />
         </div>
       </Link>
-      <section>
+      {/* <section>
         <Link href="/Products">Products</Link>
         <Link href="/CandleCare">Candle Care</Link>
         <Link href="/AboutMe">About</Link>
         <Link href="/Contact">Contact</Link>
         <Link href="/Cart">
-          <div style={{ position: "relative" }}>
-            {/* <MdOutlineShoppingCart size={"1.5em"} /> */}
-            <div>
+          <div style={{ position: "relative" }}> */}
+      {/* <MdOutlineShoppingCart size={"1.5em"} /> */}
+      {/* <div>
               <Image src={basket} alt="cart" width={25} height={25} />
               <div className={styles.cartItemDisplay}>{cart}</div>
             </div>
           </div>
         </Link>
-      </section>
+      </section> */}
       {/* {showMobileNavMenu ? (
         <>
           {isOpen ? (

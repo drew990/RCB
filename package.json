@@ -14,6 +14,7 @@
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-player": "^2.12.0",
     "square": "^25.1.0"
   },
   "devDependencies": {

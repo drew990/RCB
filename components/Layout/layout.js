@@ -4,9 +4,9 @@ import NavBar from "../Nav/navbar";
 function Layout({ children }) {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
