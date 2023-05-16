@@ -4,8 +4,6 @@ import insta from "../images/insta.png";
 import Image from "next/image";
 import Logo from "../images/Logo/logo.png";
 import { motion } from "framer-motion";
-// import backgroundVideo from "../images/Vid/BackgroundVideo.mp4";
-import ReactPlayer from "react-player";
 
 function ComingSoon() {
   const container = {
