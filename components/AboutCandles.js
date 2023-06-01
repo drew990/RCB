@@ -1,7 +1,8 @@
 import React from "react";
-import insta from "../images/FillerAbout.jpg";
+import aboutCandles from "../images/AboutCandles/aboutCandles.png";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 function AboutCandles() {
@@ -12,13 +13,15 @@ function AboutCandles() {
         className={styles.aboutCandlesContainer}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        exit={{ opacity: 0 }}
       >
         <div
           className={`${styles["flexSize1"]}  `}
           style={{ textAlign: "center" }}
         >
           <div className={styles.imgContainerAbout}>
-            <Image src={insta} alt="Filler Pic" layout="responsive" />
+            <Image src={aboutCandles} alt="Filler Pic" layout="responsive" />
           </div>
         </div>
         <div
@@ -55,7 +58,9 @@ function AboutCandles() {
               </li>
             </ul>
           </div>
-          <button>Shop My Candles</button>
+          <Link href="/Products">
+            <button>Shop My Candles</button>
+          </Link>
         </div>
       </motion.div>
     </div>

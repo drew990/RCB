@@ -2,11 +2,18 @@ import Image from "next/image";
 import React from "react";
 import Renett from "../images/renett.png";
 import styles from "../styles/Home.module.css";
+import { motion } from "framer-motion";
 
 function AboutMe() {
   return (
     <div className={styles.aboutCandlesBackground}>
-      <div className={styles.aboutMeContainer}>
+      <motion.div
+        className={styles.aboutMeContainer}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        exit={{ opacity: 0 }}
+      >
         <div
           className={`${styles["aboutFlex1"]} ${styles["about-text-container"]}`}
         >
@@ -37,7 +44,14 @@ function AboutMe() {
           <br />
           <p style={{ fontWeight: "bold" }}>"Let Your Brilliance Shine"</p>
         </div>
-        <div className={styles.aboutFlex2} style={{ textAlign: "center" }}>
+        <div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          exit={{ opacity: 0 }}
+          className={styles.aboutFlex2}
+          style={{ textAlign: "center" }}
+        >
           <div className={styles.aboutFlexImg2}>
             <Image
               src={Renett}
@@ -48,7 +62,7 @@ function AboutMe() {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

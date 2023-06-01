@@ -6,9 +6,18 @@ import commerce from "../lib/commerce";
 import AboutProducts from "../components/AboutCandles";
 import AboutMe from "../components/AboutMe";
 import ContactForm from "../components/ContactForm";
-import ProductList from "../components/ProductList";
-// { products }
-export default function Home() {
+import Products from "../components/Products/Products";
+
+export const getStaticProps = async () => {
+  const res = await fetch("http://localhost:3000/api/productsSqu");
+  const data = await res.json();
+
+  return {
+    props: { products: data },
+  };
+};
+
+export default function Home({ products }) {
   return (
     <>
       <Head>
@@ -18,7 +27,7 @@ export default function Home() {
       </Head>
       <Hero />
       <AboutProducts />
-      <ProductList />
+      <Products products={products} />
     </>
   );
 }

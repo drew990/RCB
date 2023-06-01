@@ -470,6 +470,7 @@ footer .links:hover {
 }
 
 .cardContainer h1 {
+  padding: 3rem 0 2rem 0;
   text-align: center;
   color: var(--Fourth-Color);
 }
