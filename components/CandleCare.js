@@ -3,6 +3,13 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import Insta from "../images/insta.png";
 import { motion } from "framer-motion";
+// ICONS IMPORTED
+import Caution from "../images/CandleCareIcons/caution.png";
+import fireExt from "../images/CandleCareIcons/fire-extinguisher.png";
+import inclination from "../images/CandleCareIcons/inclination.png";
+import table from "../images/CandleCareIcons/table.png";
+import time from "../images/CandleCareIcons/time.png";
+import trim from "../images/CandleCareIcons/trim.png";
 
 function CandleCare() {
   return (
@@ -16,7 +23,7 @@ function CandleCare() {
           >
             <div className={styles.candleCareImg}>
               <Image
-                src={Insta}
+                src={trim}
                 alt="Image Here"
                 width={50}
                 height={50}
@@ -34,7 +41,7 @@ function CandleCare() {
           >
             <div className={styles.candleCareImg}>
               <Image
-                src={Insta}
+                src={table}
                 alt="Image Here"
                 width={50}
                 height={50}
@@ -62,7 +69,7 @@ function CandleCare() {
           >
             <div className={styles.candleCareImg}>
               <Image
-                src={Insta}
+                src={time}
                 alt="Image Here"
                 width={50}
                 height={50}
@@ -82,7 +89,7 @@ function CandleCare() {
           >
             <div className={styles.candleCareImg}>
               <Image
-                src={Insta}
+                src={inclination}
                 alt="Image Here"
                 width={50}
                 height={50}
@@ -102,7 +109,7 @@ function CandleCare() {
           >
             <div className={styles.candleCareImg}>
               <Image
-                src={Insta}
+                src={Caution}
                 alt="Image Here"
                 width={50}
                 height={50}
@@ -122,7 +129,7 @@ function CandleCare() {
           >
             <div className={styles.candleCareImg}>
               <Image
-                src={Insta}
+                src={fireExt}
                 alt="Image Here"
                 width={50}
                 height={50}
@@ -142,7 +149,7 @@ function CandleCare() {
           >
             <div className={styles.candleCareImg}>
               <Image
-                src={Insta}
+                src={Caution}
                 alt="Image Here"
                 width={50}
                 height={50}

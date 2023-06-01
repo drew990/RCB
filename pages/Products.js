@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
+import { NotificationManager } from "react-notifications";
 
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:3000/api/productsSqu");
@@ -31,19 +32,21 @@ function Products({ products }) {
     }
   }, [orders]);
 
-  // function getCart() {
-  //   let key = "products";
-  //   let data = [];
+  function getCart() {
+    let key = "products";
+    let data = [];
 
-  //   data = window.localStorage.getItem(key);
+    data = window.localStorage.getItem(key);
 
-  //   if (data !== null) {
-  //     console.log("Data is not null!");
-  //     console.log("DATA", data);
-  //   } else {
-  //     console.log("data is null");
-  //   }
-  // }
+    if (data !== null) {
+      console.log("Data is not null!");
+      console.log("DATA", data);
+    } else {
+      console.log("data is null");
+    }
+  }
+
+  console.log(products);
 
   function convertPrice(amount) {
     return amount / 100;
@@ -59,6 +62,7 @@ function Products({ products }) {
     } else {
       setOrders([e.target.value]);
     }
+    NotificationManager.success("Successfully Added to Cart!", "Success", 2000);
     // localStorage.setItem("cart", JSON.stringify(orders));
   }
 
@@ -68,7 +72,7 @@ function Products({ products }) {
       <div className={styles.flex}>
         <React.StrictMode>
           {products.map((product) => (
-            <div key={product[0].id} className={styles.card}>
+            <div key={product.id} className={styles.card}>
               <Image
                 src={product[1].imageData.url}
                 alt="Image Here"
@@ -95,6 +99,7 @@ function Products({ products }) {
                 ) : (
                   ""
                 )}
+                <h4>{product.id}</h4>
                 <h4>{product[0].itemData.name}</h4>
                 <p>
                   $
@@ -103,19 +108,18 @@ function Products({ products }) {
                       .priceMoney.amount
                   )}
                 </p>
-
                 {/* <div>
-                <button
-                  onclick={() => {
-                    console.log("Add quantity");
-                    setQuantity(quantity + 1);
-                  }}
-                >
-                  +
-                </button>
-                <div>{quantity}</div>
-                <div>-</div>
-              </div> */}
+                  <button
+                    onclick={() => {
+                      console.log("Add quantity");
+                      setQuantity(quantity + 1);
+                    }}
+                  >
+                    +
+                  </button>
+                  <div>{quantity}</div>
+                  <div>-</div>
+                </div> */}
                 <div>
                   <button onClick={addToCart} value={product[0].id}>
                     Add to Cart

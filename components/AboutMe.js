@@ -1,33 +1,52 @@
 import Image from "next/image";
 import React from "react";
-import FillerPic from "../images/AboutCandles/aboutmycandles.jpg";
+import Renett from "../images/renett.png";
 import styles from "../styles/Home.module.css";
 
 function AboutMe() {
   return (
     <div className={styles.aboutCandlesBackground}>
       <div className={styles.aboutMeContainer}>
-        <div className={styles.flexSize1} style={{ textAlign: "center" }}>
-          <Image
-            src={FillerPic}
-            alt="Filler Pic"
-            width="125%"
-            height="100%"
-            layout="responsive"
-            objectFit="contain"
-          />
-        </div>
-        <div className={styles.flexSize2}>
+        <div
+          className={`${styles["aboutFlex1"]} ${styles["about-text-container"]}`}
+        >
           <h2>About Me</h2>
           <p>
-            All candles are made with care and love. I use 100% soy wax. Soy wax
-            is the oil from soybeans. They are eco friendly and have a clean
-            slow burn Wicks are cotton with no metal core. Fragrance scents are
-            100% phthalate-free, which are chemicals used in hundreds of
-            products and are linked to many health issues. Burning candles
-            should be enjoyed without the worry about the safety for your home
-            and family!
+            I've always loved candles! Besides the pleasant aromas that fill the
+            air of your home, there is something calming about them. During what
+            was the most challenging time in the world, a global pandemic, we
+            all had to stop, slow down, and reflect on what was most important
+            to us, our health and families. We each had to look into our inner
+            selves and find a passion and purpose to the madness.
           </p>
+          <br />
+          <p>
+            Making candles was always something I wanted to try. As I began to
+            experiment, I have learned and continue to learn more about candle
+            making. I put thought and care into the products being used to give
+            you assurance that the candles being burned in your home are safer
+            than other products. Using 100% soy wax, eco friendly wicks made of
+            cotton, and fragrance scents that are phthalate-free.
+          </p>
+          <br />
+          <p>
+            I have found my passion and hope that you can also find yours. May
+            you enjoy burning your candles and remember that you are powerful
+            and brilliant!
+          </p>
+          <br />
+          <p style={{ fontWeight: "bold" }}>"Let Your Brilliance Shine"</p>
+        </div>
+        <div className={styles.aboutFlex2} style={{ textAlign: "center" }}>
+          <div className={styles.aboutFlexImg2}>
+            <Image
+              src={Renett}
+              alt="Filler Pic"
+              // width="74%"
+              // height="100%"
+              layout="responsive"
+            />
+          </div>
         </div>
       </div>
     </div>

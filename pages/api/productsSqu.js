@@ -54,6 +54,7 @@ export default async function handler(req, res) {
     try {
       // Create a array variable
       let items = [];
+      let items_images_len = 0;
 
       // Gets catalog from square
       let listCatalogResponse = await catalogApi.listCatalog();
@@ -63,40 +64,56 @@ export default async function handler(req, res) {
       for (let i = 0; i < catalogs.length; i++) {
         if (catalogs[i].type === "ITEM") {
           items.push(catalogs[i]);
+          // console.log(catalogs[i].itemData);
+          try {
+            if (typeof catalogs[i].itemData.imageIds[0] != undefined) {
+              items_images_len += 1;
+            }
+          } catch (err) {
+            console.log(err);
+          } finally {
+            continue;
+          }
         }
       }
-
+      console.log(items_images_len);
       // Gets Image URL if their is an ID
-      for (let i = 0; i < items.length; i++) {
+      for (let i = 0; i < items_images_len; i++) {
         // if (items[i].itemData.imageIds[0] != "") {}
         let data = [];
-        data.push(items[i]);
-
-        const response = await client.catalogApi.retrieveCatalogObject(
-          items[i].itemData.imageIds[0]
-        );
-        // console.log("YOUR RESPONSE ", response.result.object);
-
-        data.push(response.result.object);
-        // console.log(data);
-        items.splice(i, 1, data);
-      }
-
-      // Gets Item Options if an ID exist
-      for (let i = 0; i < items.length; i++) {
-        if (items[i][0].itemData.itemOptions[0].itemOptionId != null) {
-          let data = [];
-
+        // Checking Items
+        // console.log(items[i]);
+        if (typeof items[i].itemData.imageIds[0] !== undefined) {
           data.push(items[i]);
 
-          const response = await client.catalogApi.retrieveCatalogObject(
-            items[i][0].itemData.itemOptions[0].itemOptionId
-          );
+          // console.log(i, ":", items[i].itemData);
+          // console.log(items.length);
 
-          data[0].push(response.result.object);
-          // items.splice(i, 0, data);
+          const response = await client.catalogApi.retrieveCatalogObject(
+            items[i].itemData.imageIds[0]
+          );
+          // console.log("YOUR RESPONSE ", response.result.object);
+
+          data.push(response.result.object);
+          // console.log(data);
+          items.splice(i, 1, data);
+        } else {
+          // console.log(err);
+          // if (err instanceof TypeError) {}
+          // IF NO IMAGE creates its own
+          // const no_Img = {
+          //   type: "IMAGE",
+          //   id: `No_Image_ID_${i}}`,
+          //   imageData: {
+          //     name: "No Pic Image",
+          //     url: "https://images.pexels.com/photos/278664/pexels-photo-278664.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          //   },
+          // };
+          // data.push(no_Img);
+          // items.splice(i, 1, data);
+
+          break;
         }
-        // console.log(items[0][0].itemData.itemOptions[0].itemOptionId);
       }
 
       // DO NOT DELETE

@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
+import Image from "next/image";
+import Trash from "../images/trash.png";
+import { motion } from "framer-motion";
+import { NotificationManager } from "react-notifications";
 
 function Cart() {
   const [orders, setOrders] = useState();
   const [displayOrders, setDisplayOrders] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
+  // const [totalAmount, setTotalAmount] = useState(0);
+  let totalCost = 0;
 
   useEffect(() => {
     // const item = "Hello";
@@ -12,8 +17,6 @@ function Cart() {
     const items = JSON.parse(data);
     setOrders(items);
   }, []);
-
-  // console.log("Your Orders is:", orders);
 
   // Handles order Changes
   useEffect(() => {
@@ -42,12 +45,38 @@ function Cart() {
   }, [orders]);
 
   function convertPrice(amount) {
+    // setTotalAmount(totalAmount + amount / 100);
     return amount / 100;
   }
 
-  if (displayOrders.length > 0) {
-    console.log("Orders", displayOrders[0]);
+  function removeItem(e) {
+    e.preventDefault();
+    NotificationManager.success(
+      "Successfully Remove Item from Cart",
+      "Remove Entire Item From Cart",
+      2000
+    );
+    // Gets ID to remove Item
+    const productId = e.target.id;
+    let storage = JSON.parse(window.localStorage.cart);
+
+    // Deletes every ID that was given
+    for (let x = 0; x < storage.length; x++) {
+      if (storage[x] == productId) {
+        storage.splice(x, 1);
+        x--;
+      }
+    }
+    // Re-Enters in data into local storage
+    localStorage.setItem("cart", JSON.stringify(storage));
+    // Reloads Page to give the updated cart
+    location.reload();
   }
+
+  function getProductTotal(quantity, price) {
+    return Number(quantity * price) / 100;
+  }
+
   return (
     <div className={styles.cartBackground}>
       <div className={`${styles["cartConatiner"]} ${styles["cartFlex"]}`}>
@@ -61,34 +90,74 @@ function Cart() {
               <h3>Total</h3>
             </div>
 
-            {displayOrders.map((displayOrder) => (
-              <div
-                className={`${styles["flex"]} ${styles["fullWidth"]}`}
-                key={displayOrder.id}
-              >
-                <div className={styles.cartFlexOrder}>
-                  <p>
-                    {displayOrder.itemData.name} <br />
+            {displayOrders.map((displayOrder) => {
+              totalCost =
+                totalCost +
+                Number(
+                  displayOrder[0][0].itemData.variations[0].itemVariationData
+                    .priceMoney.amount
+                ) *
+                  displayOrder[1];
+              return (
+                <div
+                  className={`${styles["flex"]} ${styles["fullWidth"]} ${styles["checkout_flex"]}`}
+                  key={displayOrder[0][0].id}
+                >
+                  <div className={styles.cartFlexOrder}>
+                    <Image
+                      src={displayOrder[0][1].imageData.url}
+                      alt="Image Here"
+                      layout="fixed"
+                      width={150}
+                      height={150}
+                    />
+                    <h3>
+                      {displayOrder[0][0].itemData.name} <br />
+                    </h3>
+                  </div>
+                  <p className={styles.cartFlexOrder}>
+                    $
+                    {convertPrice(
+                      displayOrder[0][0].itemData.variations[0]
+                        .itemVariationData.priceMoney.amount
+                    )}
                   </p>
+                  <p className={styles.cartFlexOrder}>{displayOrder[1]}</p>
+                  <p className={styles.cartFlexOrder}>
+                    $
+                    {getProductTotal(
+                      displayOrder[1],
+                      displayOrder[0][0].itemData.variations[0]
+                        .itemVariationData.priceMoney.amount
+                    )}
+                  </p>
+                  {/* <p>{displayOrder[0].id}</p> */}
+                  <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Image
+                      src={Trash}
+                      alt="Delete"
+                      layout="fixed"
+                      width={30}
+                      height={30}
+                      onClick={removeItem}
+                      id={displayOrder[0][0].id}
+                    />
+                  </motion.div>
                 </div>
-                <p className={styles.cartFlexOrder}>
-                  $
-                  {convertPrice(
-                    displayOrder.itemData.variations[0].itemVariationData
-                      .priceMoney.amount
-                  )}
-                </p>
-                <p className={styles.cartFlexOrder}>Quantity</p>
-                <p className={styles.cartFlexOrder}>Total</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
         <aside className={`${styles["cartAside"]} ${styles["cartFlexSize2"]}`}>
-          <h2>Shopping Cart Subtotal</h2>
-          <h3>$15.00</h3>
-          <p>SHIPPING & TAXES WILL BE CALCULATED AT CHECKOUT</p>
-          <button>Checkout</button>
+          <div className={styles.cartAsideText}>
+            <h2>Shopping Cart Subtotal</h2>
+            <h3>${convertPrice(totalCost)}</h3>
+            <p>SHIPPING & TAXES WILL BE CALCULATED AT CHECKOUT</p>
+            <button>Checkout</button>
+          </div>
         </aside>
       </div>
     </div>
