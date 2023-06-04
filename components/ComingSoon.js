@@ -39,7 +39,7 @@ function ComingSoon() {
             animate="visible"
             className={styles.flex}
           >
-            {["Soothing", "Candles", "Coming ", "Soon..."].map((index) => (
+            {["RCBrilliance", "Candles", "Coming ", "Soon..."].map((index) => (
               <motion.h1 key={index} variants={item}>
                 {index}
               </motion.h1>
