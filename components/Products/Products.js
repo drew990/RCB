@@ -1,50 +1,38 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/Home.module.css";
-import Image from "next/image";
 import { NotificationManager } from "react-notifications";
-import { motion } from "framer-motion";
 import ProductCards from "./ProductCards/ProductCards";
 
 export default function Products({ products }) {
-  // let [orders, setOrders] = useState();
+  let [orders, setOrders] = useState();
 
-  // // console.log("Your Products Are: ", products);
+  useEffect(() => {
+    let data = window.localStorage.getItem("cart");
+    if (data !== null) setOrders(JSON.parse(data));
 
-  // useEffect(() => {
-  //   let data = window.localStorage.getItem("cart");
-  //   if (data !== null) setOrders(JSON.parse(data));
+    // console.log("ORDERS ARE", orders);
+  }, []);
 
-  //   // console.log("ORDERS ARE", orders);
-  // }, []);
-
-  // useEffect(() => {
-  //   if (orders != null) {
-  //     window.localStorage.setItem("cart", JSON.stringify(orders));
-  //     // console.log("Orders:", orders);
-  //   }
-  // }, [orders]);
-
-  function getCart() {
-    let key = "products";
-    let data = [];
-
-    data = window.localStorage.getItem(key);
-
-    if (data !== null) {
-      console.log("Data is not null!");
-      console.log("DATA", data);
-    } else {
-      console.log("data is null");
+  useEffect(() => {
+    if (orders != null) {
+      window.localStorage.setItem("cart", JSON.stringify(orders));
+      // console.log("Orders:", orders);
     }
-  }
+  }, [orders]);
 
-  // console.log(products);
+  // function getCart() {
+  //   let key = "products";
+  //   let data = [];
 
-  function convertPrice(amount) {
-    return amount / 100;
-  }
+  //   data = window.localStorage.getItem(key);
 
-  // useEffect(() => {}, []);
+  //   if (data !== null) {
+  //     console.log("Data is not null!");
+  //     console.log("DATA", data);
+  //   } else {
+  //     console.log("data is null");
+  //   }
+  // }
 
   function addToCart(e) {
     e.preventDefault();
@@ -58,6 +46,12 @@ export default function Products({ products }) {
     // localStorage.setItem("cart", JSON.stringify(orders));
   }
 
+  // console.log(products);
+
+  function convertPrice(amount) {
+    return amount / 100;
+  }
+
   return (
     <div className={styles.cardContainer}>
       <h1>Shop the Candles</h1>
@@ -67,7 +61,7 @@ export default function Products({ products }) {
           {products.map((product) => (
             <>
               <ProductCards
-                key={product[0].id}
+                // key={product[0].id}
                 productID={product[0].id}
                 ImageURL={product[1].imageData.url}
                 name={product[0].itemData.name}
@@ -75,6 +69,7 @@ export default function Products({ products }) {
                   product[0].itemData.variations[0].itemVariationData.priceMoney
                     .amount
                 )}
+                addToCart={addToCart}
               />
             </>
           ))}
