@@ -3,9 +3,15 @@ import Link from "next/link";
 import styles from "../../styles/Home.module.css";
 import Logo from "../../images/Logo/Logo.png";
 import Image from "next/image";
-import basket from "../../images/cart.png";
+import cartImg from "../../images/cart.png";
+import { motion } from "framer-motion";
+import about from "../../images/NavLogos/about.png";
+import basket from "../../images/NavLogos/basket.png";
+import candle from "../../images/NavLogos/candle.png";
+import form from "../../images/NavLogos/form.png";
+import help from "../../images/NavLogos/help.png";
 
-// import { Spin as Hamburger } from "hamburger-react";
+import { Spin as Hamburger } from "hamburger-react";
 // import { MdOutlineShoppingCart } from "react-icons/md";
 // import commerce from "../lib/commerce";
 
@@ -15,68 +21,154 @@ const AppNavbar = () => {
   const [isOpen, setOpen] = useState(false);
   const [cart, setCart] = useState(0);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (window.innerWidth > 767) {
-  //       setShowMobileNavMenu(false);
-  //       setMobileNavOpen(false);
-  //     } else if (window.innerWidth < 767) {
-  //       setShowMobileNavMenu(true);
-  //     }
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-
   useEffect(() => {
-    console.log("NAC");
+    // const handleResize = () => {
+    //   if (window.innerWidth > 767) {
+    //     setShowMobileNavMenu(false);
+    //     setMobileNavOpen(false);
+    //   } else if (window.innerWidth < 767) {
+    //     setShowMobileNavMenu(true);
+    //   }
+    // };
 
-    window.onstorage = (event) => {
-      console.log(event.key);
-    };
+    // Sets Nav in Mobile View
+    if (window.innerWidth < 767) {
+      setShowMobileNavMenu(true);
+    }
+    // window.addEventListener("resize", handleResize);
 
-    // let data = JSON.parse(localStorage.getItem("cart"));
-    // if (data != null) {
-    //   console.log("NAV DATA", data.length);
-    //   setCart(data.length);
-    // }
-    // setCart(0);
+    // return () => {
+    //   window.removeEventListener("resize", handleResize);
+    // };
   }, []);
 
-  // const handleToggle = () => {
-  //   setNavbarOpen(!navbarOpen);
-  // };
+  useEffect(() => {
+    // console.log("NAV LISTENING");
+    const handleLocalStorage = () => {
+      // console.log("In handlelocalstorage");
+
+      let items = JSON.parse(localStorage.getItem("cart"));
+      // console.log("ITEMS:", items);
+
+      if (items != null) {
+        let productInCartNum = 0;
+
+        for (const [key, value] of Object.entries(items)) {
+          productInCartNum = productInCartNum + value.Quantity;
+        }
+
+        setCart(productInCartNum);
+      }
+    };
+
+    window.addEventListener("storage", handleLocalStorage());
+    // return () => window.removeEventListener("storage", handleLocalStorage());
+  }, []);
 
   return (
     <nav>
-      <Link
-        className={`${isOpen ? `${styles.mobileNav}` : ""} `}
-        onClick={() => setOpen(false)}
-        href="/"
-      >
+      <Link onClick={() => setOpen(false)} href="/">
         <div className={`${styles["LogoHover"]}`}>
           <Image src={Logo} width={85} height={45} />
         </div>
       </Link>
-      <section>
-        <Link href="/Products">Products</Link>
-        <Link href="/CandleCare">Candle Care</Link>
-        <Link href="/AboutMe">About</Link>
-        <Link href="/Contact">Contact</Link>
-        <Link href="/Cart">
-          <div style={{ position: "relative" }}>
-            {/* <MdOutlineShoppingCart size={"1.5em"} /> */}
-            <div>
-              <Image src={basket} alt="cart" width={25} height={25} />
-              <div className={styles.cartItemDisplay}>{cart}</div>
-            </div>
+
+      {showMobileNavMenu ? (
+        <div>
+          <div>
+            <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
-        </Link>
-      </section>
+          {isOpen ? (
+            <motion.ul
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ type: "just" }}
+            >
+              <li>
+                <Link href="/Products">
+                  <motion.h4
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => setOpen(false)}
+                  >
+                    <Image src={candle} alt="cart" width={20} height={20} />
+                    Products
+                  </motion.h4>
+                </Link>
+              </li>
+              <li>
+                <Link href="/CandleCare">
+                  <motion.h4
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => setOpen(false)}
+                  >
+                    <Image src={help} alt="cart" width={20} height={20} />
+                    Candle Care
+                  </motion.h4>
+                </Link>
+              </li>
+              <li>
+                <Link href="/AboutMe">
+                  <motion.h4
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => setOpen(false)}
+                  >
+                    <Image src={about} alt="cart" width={20} height={20} />
+                    About
+                  </motion.h4>
+                </Link>
+              </li>
+              <li>
+                <Link href="/Contact">
+                  <motion.h4
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => setOpen(false)}
+                  >
+                    <Image src={form} alt="cart" width={20} height={20} />
+                    Contact
+                  </motion.h4>
+                </Link>
+              </li>
+              <li>
+                <Link href="/Cart">
+                  <motion.h4
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => setOpen(false)}
+                  >
+                    <Image src={basket} alt="cart" width={20} height={20} />
+                    Cart
+                  </motion.h4>
+                </Link>
+              </li>
+            </motion.ul>
+          ) : (
+            ""
+          )}
+        </div>
+      ) : (
+        <section>
+          <Link href="/Products">Products</Link>
+          <Link href="/CandleCare">Candle Care</Link>
+          <Link href="/AboutMe">About</Link>
+          <Link href="/Contact">Contact</Link>
+          <Link href="/Cart">
+            Cart
+            {/* <div style={{ position: "relative" }}>
+              <div>
+                <Image src={cartImg} alt="cart" width={25} height={25} />
+                <div className={styles.cartItemDisplay}>
+                  {cart != undefined ? <p>{cart}</p> : <p>False</p>}
+                </div>
+              </div>
+             </div> */}
+          </Link>
+        </section>
+      )}
       {/* {showMobileNavMenu ? (
         <>
           {isOpen ? (

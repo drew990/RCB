@@ -7,7 +7,7 @@ const client = new Client({
   // restarted in order for the new token to work
 
   // Sandbox Mode
-  // accessToken: process.env.ACCESS_TOKEN,
+  // accessToken: process.env.SANDBOX_ACCESS_TOKEN,
   // environment: Environment.Sandbox,
 
   // Production Mode
@@ -17,39 +17,10 @@ const client = new Client({
 
 const { locationsApi, catalogApi } = client;
 
-// Get Locations of the store
-async function getLocations() {
-  try {
-    let listLocationsResponse = await locationsApi.listLocations();
-    let locations = listLocationsResponse.result.locations;
-    console.log(locations);
-  } catch (error) {
-    if (error instanceof ApiError) {
-      error.result.errors.forEach(function (e) {
-        console.log(e.category);
-        console.log(e.code);
-        console.log(e.detail);
-      });
-    } else {
-      console.log("Unexpected error occurred: ", error);
-    }
-  }
-}
-
-// Get the products of the store
-async function getCatalog() {}
-
-// Get Objects
-
-//TEST FUNCTIONS ->> getLocations();
-
 export default async function handler(req, res) {
   // GETS the data from Square
   if (req.method === "GET") {
-    console.log("IN GET METHOD");
-    // getCatalog();
-    // console.log(items);
-    // res.status(200).json(items);
+    // console.log("IN GET METHOD");
 
     try {
       // Create a array variable

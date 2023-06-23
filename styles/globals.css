@@ -109,33 +109,23 @@ nav section a:active {
   cursor: progress;
 }
 
-/*
-nav div {
+nav ul {
+  list-style: none;
+  position: fixed;
+  padding: 2rem 0;
+  top: 80px;
+  left: 0%;
+  background-color: var(--secondary-Color);
+  width: 100%;
+  z-index: 1;
+}
+nav ul h4 {
+  padding-bottom: 12px;
+  text-align: center;
   display: flex;
-  justify-content: space-evenly;
-  width: 40%;
+  justify-content: center;
+  align-items: center;
 }
-
-nav div section {
-  display: flex;
-  justify-content: space-evenly;
-  width: 90%;
-}
-
-nav div section a {
-  margin: 0 0.5rem;
-  color: rgba(0, 0, 0, 1);
-  font-weight: 800;
-  transition: 0.2s ease-in-out;
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
-}
-
-nav div section a:hover {
-  margin: 0 0.5rem;
-  color: rgba(0, 0, 0, 1);
-  border-bottom: 1px solid rgba(0, 0, 0, 1);
-  font-weight: 800;
-} */
 
 header {
   overflow-y: hidden;
@@ -246,7 +236,6 @@ input {
   padding: 0.5rem 1rem;
   margin-bottom: 2rem;
   transition: 0.3s ease-in-out;
-  /* border-bottom: 2px solid rgba(0, 0, 0, 0.5); */
   border-bottom: none;
   border-top: none;
   border-right: none;
@@ -257,18 +246,10 @@ input {
 
 input:hover {
   box-shadow: -0px 0 0.5rem rgba(0, 0, 0, 0.4);
-  /* border-bottom: 2px solid rgba(0, 0, 0, 0.75); */
-  /* border-top: 2px solid rgba(0, 0, 0, 0.75);
-  border-right: 2px solid rgba(0, 0, 0, 0.75);
-  border-left: 2px solid rgba(0, 0, 0, 0.75); */
 }
 
 input:focus {
   box-shadow: -0px 0 0.5rem rgba(0, 0, 0, 0.75);
-  /* border-bottom: 2px solid rgba(0, 0, 0, 1); */
-  /* border-top: 2px solid rgba(0, 0, 0, 1);
-  border-right: 2px solid rgba(0, 0, 0, 1);
-  border-left: 2px solid rgba(0, 0, 0, 1); */
 }
 
 textarea {
@@ -279,11 +260,6 @@ textarea {
   padding: 0.5rem 1rem;
   margin-bottom: 2rem;
   transition: 0.3s ease-in-out;
-  /* border-radius: 5px; */
-  /* border-bottom: 2px solid rgba(0, 0, 0, 0.5); */
-  /* border-top: 2px solid rgba(0, 0, 0, 0.75);
-  border-right: 2px solid rgba(0, 0, 0, 0.75);
-  border-left: 2px solid rgba(0, 0, 0, 0.75); */
   border-bottom: none;
   border-top: none;
   border-right: none;
@@ -294,18 +270,10 @@ textarea {
 
 textarea:hover {
   box-shadow: -0px 0 0.5rem rgba(0, 0, 0, 0.5);
-  /* border-bottom: 2px solid rgba(0, 0, 0, 0.75); */
-  /* border-top: 2px solid rgba(0, 0, 0, 0.75);
-  border-right: 2px solid rgba(0, 0, 0, 0.75);
-  border-left: 2px solid rgba(0, 0, 0, 0.75); */
 }
 
 textarea:focus {
   box-shadow: -0px 0 0.5rem rgba(0, 0, 0, 0.75);
-  /* border-bottom: 2px solid rgba(0, 0, 0, 1); */
-  /* border-top: 2px solid rgba(0, 0, 0, 1);
-  border-right: 2px solid rgba(0, 0, 0, 1);
-  border-left: 2px solid rgba(0, 0, 0, 1); */
 }
 
 @media screen and (max-width: 1600px) {
@@ -322,6 +290,9 @@ textarea:focus {
     background-color: var(--secondary-Color);
     padding: 1rem;
     margin: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
   }
   form {
     background-color: var(--primary-Color);

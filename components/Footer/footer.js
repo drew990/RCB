@@ -16,13 +16,13 @@ export default function footer() {
           <Link href="/">
             <p className={styles.links}>Home</p>
           </Link>
-          <Link href="/contact">
-            <p className={styles.links}>Contact</p>
-          </Link>
-          <Link href="/shop">
+          <Link href="/Products">
             <p className={styles.links}>Products</p>
           </Link>
-          <Link href="/about">
+          <Link href="/Contact">
+            <p className={styles.links}>Contact</p>
+          </Link>
+          <Link href="/AboutMe">
             <p className={styles.links}>About Us</p>
           </Link>
         </div>
@@ -58,7 +58,7 @@ export default function footer() {
             <p className={styles.links}>Shipping Policy</p>
           </Link>
         </div>
-        &copy;2023 by RCBrilliance Inc.
+        &copy;{new Date().getFullYear()} by RCBrilliance Inc.
         <p style={{ marginTop: "16px" }}>
           Made by&nbsp;
           <a href="https://github.com/drew990" className={styles.links}>

@@ -1,10 +1,15 @@
 import { useState } from "react";
 import styles from "../../../styles/Home.module.css";
 import Image from "next/image";
-import { NotificationManager } from "react-notifications";
 import { motion } from "framer-motion";
 
-function ProductCards({ productID, ImageURL, name, price, addToCart }) {
+export default function FeatureProductCards({
+  productID,
+  name,
+  ImageURL,
+  price,
+  addToCart,
+}) {
   let [quantity, setQuantity] = useState(1);
 
   function addQuantity(e) {
@@ -28,7 +33,6 @@ function ProductCards({ productID, ImageURL, name, price, addToCart }) {
 
   return (
     <motion.div
-      key={productID}
       className={styles.card}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -46,7 +50,7 @@ function ProductCards({ productID, ImageURL, name, price, addToCart }) {
       />
       <div className={styles.cardText}>
         <h4>{name}</h4>
-        <h4 style={{ padding: "0" }}>${price}</h4>
+        <p>${price}</p>
         <div className={`${styles["flexRow"]} ${styles["cardAddCart"]}`}>
           <div>
             <motion.h4
@@ -71,11 +75,7 @@ function ProductCards({ productID, ImageURL, name, price, addToCart }) {
           </div>
         </div>
         <div>
-          <button
-            onClick={addToCart}
-            value={[productID, quantity]}
-            // quantity={quantity}
-          >
+          <button onClick={addToCart} value={[productID, quantity]}>
             Add to Cart
           </button>
         </div>
@@ -83,5 +83,3 @@ function ProductCards({ productID, ImageURL, name, price, addToCart }) {
     </motion.div>
   );
 }
-
-export default ProductCards;

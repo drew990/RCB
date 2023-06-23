@@ -477,7 +477,7 @@ footer .links:hover {
 
 .card {
   width: 250px;
-  height: 450px;
+  min-height: 450px;
   /* box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.25); */
   margin: 1rem 2rem;
   /* border-radius: 5px; */
@@ -506,6 +506,21 @@ footer .links:hover {
 .cardText div {
   width: 100%;
   text-align: center;
+}
+
+.cardAddCart {
+  border: 2px solid rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  /* background-color: var(--third-Color); */
+  /* color: #fff; */
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.25);
+}
+.cardAddCart h4 {
+  color: #000;
+  padding: 0;
 }
 
 /* Form CSS */
@@ -566,19 +581,19 @@ footer .links:hover {
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--Fourth-Color);
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
 }
 
 .cartConatiner {
   max-width: 80%;
   background-color: rgba(217, 217, 217, 0.75);
-  margin: 3rem auto;
+  margin: 1rem auto;
   /* padding: 5rem 2rem; */
 }
 
 .cartAside {
   background-color: var(--aside-Color);
-  width: 20%;
+  min-width: 35%;
   /* height: 100%; */
 }
 
@@ -593,23 +608,60 @@ footer .links:hover {
 
 .cartFlexSize2 {
   flex: 0.3;
-  padding: 5rem 1rem 2rem 1rem;
+  padding: 2rem 1rem 2rem 1rem;
   text-align: center;
   min-height: 20vh;
 }
 
 .cartFlexOrder {
-  flex: 0.5;
+  flex: 1;
   text-align: center;
+}
+
+.cartNumFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cartNumFlex div {
+  margin-left: 0.5rem;
+  /* padding-top: 5px; */
 }
 
 .cartAsideText {
   min-height: 400px;
-  height: 35%;
   justify-content: space-between;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.checkoutForm {
+  padding: 1rem;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkoutForm input {
+  margin-bottom: 0.5rem;
+}
+
+.checkoutForm h3 {
+  text-align: center;
+  color: var(--third-Color);
+  margin: auto;
+}
+
+.checkoutForm div {
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.checkoutForm input {
+  width: auto;
 }
 
 /* Contact Page */
@@ -674,6 +726,7 @@ footer .links:hover {
   align-items: center;
   margin-bottom: 3rem;
   padding: 0.5rem;
+  border-bottom: 1px solid;
 }
 
 .checkout_flex img {
@@ -730,6 +783,10 @@ footer .links:hover {
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
   } */
   /*  */
+
+  .aboutCandlesContainer div {
+    padding-left: 1rem;
+  }
   .flexSize1 {
     min-width: 500px;
     padding-right: 0;
@@ -802,6 +859,42 @@ footer .links:hover {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .aboutCandlesBackground {
+    background-color: var(--Fourth-Color);
+    color: #fff;
+    padding: 2rem 0;
+    padding-top: 80px;
+  }
+  .cardContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 1rem 0 1rem;
+  }
+  .candleCareBackground {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.25),
+        rgba(255, 255, 255, 0.65)
+      ),
+      url(../images/CandleBackground.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #000;
+    padding: 100px 0 4rem 0;
+  }
+  .contactBackground {
+    padding: 100px 0 2rem 0;
+  }
+  .cartBackground {
+    padding: 100px 2rem 2rem 2rem;
+  }
+  .hero {
+    padding-top: 80px;
+    height: 100vh;
+  }
+}
+
 @media (max-width: 800px) {
   .aboutFlex2 {
     width: 90%;
@@ -870,12 +963,6 @@ footer .links:hover {
     max-width: 1000px;
     text-align: center;
     padding: 2rem 1rem;
-  }
-
-  .aboutCandlesBackground {
-    background-color: var(--Fourth-Color);
-    color: #fff;
-    padding: 2rem 0;
   }
 
   .aboutCandles {

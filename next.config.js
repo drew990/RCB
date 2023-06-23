@@ -5,11 +5,13 @@ module.exports = {
   },
   images: {
     domains: ["items-images-production.s3.us-west-2.amazonaws.com"],
+    // domains: ["square-catalog-sandbox.s3.amazonaws.com"],
   },
-
-  // },
-  // i18n: {
-  //   locales: ["en"],
-  //   defaultLocale: "en",
-  // },
+  webpack: (config) => {
+    // this will override the experiments
+    config.experiments = { ...config.experiments, topLevelAwait: true };
+    // this will just update topLevelAwait property of config.experiments
+    // config.experiments.topLevelAwait = true
+    return config;
+  },
 };

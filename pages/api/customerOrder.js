@@ -6,7 +6,7 @@ const client = new Client({
   // restarted in order for the new token to work
 
   // Sandbox Mode
-  // accessToken: process.env.ACCESS_TOKEN,
+  // accessToken: process.env.SANDBOX_ACCESS_TOKEN,
   // environment: Environment.Sandbox,
 
   // Production Mode
@@ -18,73 +18,38 @@ export default async function handler(req, res) {
   //Gets req Method type
   if (req.method === "POST") {
     // Setting variables up for fetching IDS
-    //
     const orderIds = req.body.orders;
     // data for holding the API
-    const dataIDs = [];
     const data = [];
-    let productImageId = null;
-    console.log(orderIds);
 
     // Fetches Product ID from Square
     try {
-      // Counts how many duplicate IDs there are
-      const counts = {};
-      orderIds.forEach(function (x) {
-        counts[x] = (counts[x] || 0) + 1;
-      });
-
-      // console.log("COUNT", counts);
-
-      for (const [key, value] of Object.entries(counts)) {
-        dataIDs.push(key);
-      }
-
       // Gets API variable and saves into data
-      for (let i = 0; i < dataIDs.length; i++) {
-        const response = await client.catalogApi.retrieveCatalogObject(
-          dataIDs[i]
-        );
-
+      for (const [key, value] of Object.entries(orderIds)) {
+        const response = await client.catalogApi.retrieveCatalogObject(key);
         // Pushes it into Data
         data.push(response.result.object);
       }
 
       // Gets Image ID then save into data
       for (let i = 0; i < data.length; i++) {
-        productImageId = data[i].itemData.imageIds[0];
         const response = await client.catalogApi.retrieveCatalogObject(
-          productImageId
+          data[i].itemData.imageIds[0]
         );
 
-        data[i] = [data[i], response.result.object];
+        data[i].itemData["imageIds"] = response.result.object;
       }
 
-      // Adds Quantity in data
-      for (let i = 0; i < data.length; i++) {
-        data[i] = [data[i], counts[data[i][0].id]];
-      }
-      // console.log(data);
+      // console.log(data[0].itemData.imageIds);
 
-      // console.log(data[1]);
+      // data[i] = [data[i], response.result.object];
+      // // Adds Quantity in data
+      // for (let i = 0; i < data.length; i++) {
+      //   data[i] = [data[i], counts[data[i][0].id]];
+      // }
     } catch (err) {
       console.log(err);
     }
-
-    // Gets Image ID API
-    // for (let i = 0; i < data.length; i++) {
-    //   productImageId = data[i].itemData.imageIds[0];
-    //   const response = await client.catalogApi.retrieveCatalogObject(
-    //     productImageId
-    //   );
-
-    //   data.push(response.result.object);
-    // items.splice(i, 1, data);
-    // }catch (err) {
-    //   console.log(err);
-    // }
-
-    //console.log("DATA", data);
 
     // DO NOT DELETE
     // IT IS NEEDED TO CONVERT DATA INTO A JSON

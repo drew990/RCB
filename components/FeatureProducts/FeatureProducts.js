@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/Home.module.css";
+import FeatureProductCards from "./FeatureProductCards/FeatureProductCards";
 import { NotificationManager } from "react-notifications";
-import ProductCards from "./ProductCards/ProductCards";
+import styles from "../../styles/Home.module.css";
+import Link from "next/link";
 
-export default function Products({ products }) {
+export default function FeatureProducts({ products }) {
   let [orders, setOrders] = useState();
 
   useEffect(() => {
@@ -32,6 +33,8 @@ export default function Products({ products }) {
     if (orders != null) {
       // Checks if Id exist already in cart
       if (orders[productValue[0]] != undefined) {
+        console.log("Product In Cart", orders[productValue[0]].Quantity);
+
         // Adds the new Amount
         newQuantity =
           Number(orders[productValue[0]].Quantity) + Number(productValue[1]);
@@ -39,6 +42,7 @@ export default function Products({ products }) {
         const newOrder = JSON.parse(localStorage.getItem("cart"));
         let key = productValue[0];
         newOrder[key].Quantity = newQuantity;
+        console.log("Test ", newOrder[key]);
 
         setOrders(newOrder);
       }
@@ -66,29 +70,28 @@ export default function Products({ products }) {
   function convertPrice(amount) {
     return amount / 100;
   }
-
   return (
-    <div className={styles.cardContainer}>
-      <h1>Shop the Candles</h1>
+    <div className={`${styles["container"]} `} style={{ textAlign: "center" }}>
+      <h1>Feature Products</h1>
       <div className={styles.flex}>
-        <React.StrictMode>
-          {/* Passes Products To cards */}
-          {products.map((product) => (
-            <div key={product[0].id}>
-              <ProductCards
-                productID={product[0].id}
-                ImageURL={product[1].imageData.url}
-                name={product[0].itemData.name}
-                price={convertPrice(
-                  product[0].itemData.variations[0].itemVariationData.priceMoney
-                    .amount
-                )}
-                addToCart={addToCart}
-              />
-            </div>
-          ))}
-        </React.StrictMode>
+        {products.map((product) => (
+          <div key={product.id}>
+            <FeatureProductCards
+              productID={product.id}
+              name={product.itemData.name}
+              ImageURL={product.itemData.imageIds.imageData.url}
+              price={convertPrice(
+                product.itemData.variations[0].itemVariationData.priceMoney
+                  .amount
+              )}
+              addToCart={addToCart}
+            />
+          </div>
+        ))}
       </div>
+      <Link href="/Products">
+        <button style={{ marginTop: "3rem" }}>Shop All Candles</button>
+      </Link>
     </div>
   );
 }
