@@ -232,10 +232,6 @@ footer .links:hover {
   flex-wrap: wrap;
 }
 
-.hero div {
-  /* height: 500px; */
-}
-
 .heroLogoImgWidth {
   width: 100%;
 }
@@ -253,12 +249,12 @@ footer .links:hover {
 }
 
 .heroLogoImgSize {
-  width: 70%;
+  /* width: 70%; */
   margin: 0 auto 2rem auto;
 }
 
 .heroWritingImgLogoSize {
-  width: 80%;
+  /* width: 80%; */
   margin: auto;
 }
 

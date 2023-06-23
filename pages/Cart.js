@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import styles from "../styles/Home.module.css";
-import Image from "next/image";
-import Trash from "../images/cancel.png";
-import { motion } from "framer-motion";
-import { NotificationManager } from "react-notifications";
-import { v4 as uuidv4 } from "uuid";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import { motion } from 'framer-motion';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { NotificationManager } from 'react-notifications';
+import { v4 as uuidv4 } from 'uuid';
+
+import Trash from '../images/cancel.png';
+import styles from '../styles/Home.module.css';
 
 export default function Cart() {
   const router = useRouter();
@@ -15,15 +16,15 @@ export default function Cart() {
   const [displayOrders, setDisplayOrders] = useState([]);
 
   // VALUES FROM INPUT FORM
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [state, setState] = useState("");
-  const [address, setAddress] = useState("");
-  const [aptNum, setAptNum] = useState("");
-  const [city, setCity] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [phoneNum, setPhoneNum] = useState("");
+  // const [firstName, setFirstName] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [state, setState] = useState('');
+  // const [address, setAddress] = useState('');
+  // const [aptNum, setAptNum] = useState('');
+  // const [city, setCity] = useState('');
+  // const [zipCode, setZipCode] = useState('');
+  // const [phoneNum, setPhoneNum] = useState('');
 
   let totalCost = 0;
   const shippingCost = 7;
@@ -33,7 +34,7 @@ export default function Cart() {
 
   useEffect(() => {
     // const item = "Hello";
-    const data = window.localStorage.getItem("cart");
+    const data = window.localStorage.getItem('cart');
     const items = JSON.parse(data);
     setOrders(items);
   }, []);
@@ -46,10 +47,10 @@ export default function Cart() {
 
       try {
         const res = await fetch(`http://localhost:3000/api/customerOrder`, {
-          method: "POST",
+          method: 'POST',
           body: JSON.stringify({ orders }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         });
         const data = await res.json();
@@ -70,8 +71,8 @@ export default function Cart() {
   function removeItem(e) {
     e.preventDefault();
     NotificationManager.success(
-      "Successfully Remove Item from Cart",
-      "Remove Entire Item From Cart",
+      'Successfully Remove Item from Cart',
+      'Remove Entire Item From Cart',
       2000
     );
     // Gets ID to remove Item
@@ -87,7 +88,7 @@ export default function Cart() {
       }
     }
     // Re-Enters in data into local storage
-    localStorage.setItem("cart", JSON.stringify(storage));
+    localStorage.setItem('cart', JSON.stringify(storage));
     // Reloads Page to give the updated cart
     // location.reload();
   }
@@ -105,8 +106,8 @@ export default function Cart() {
     e.preventDefault();
 
     // Sends Data to Square and receives link to payment
-    const response = await fetch("/api/sendOrder", {
-      method: "POST",
+    const response = await fetch('/api/sendOrder', {
+      method: 'POST',
       body: JSON.stringify({
         // firstName: firstName,
         // lastName: lastName,
@@ -121,7 +122,7 @@ export default function Cart() {
         orderIds: orders,
       }),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
 
@@ -132,11 +133,17 @@ export default function Cart() {
 
   return (
     <div className={styles.cartBackground}>
+      <Head>
+        <title>RCBrilliance - Cart</title>
+        <meta name="description" content="RCBrilliance Cart Page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       {displayOrders != 0 ? (
-        <div className={`${styles["cartConatiner"]} ${styles["cartFlex"]}`}>
+        <div className={`${styles['cartConatiner']} ${styles['cartFlex']}`}>
           <div className={styles.cartFlexSize1}>
             <div className={styles.flex}>
-              <div className={`${styles["flex"]} ${styles["fullWidth"]}`}>
+              <div className={`${styles['flex']} ${styles['fullWidth']}`}>
                 <h3>Product</h3>
                 <h3>Price</h3>
                 <h3>Quantity</h3>
@@ -154,7 +161,7 @@ export default function Cart() {
                     orders[displayOrder.id].Quantity;
                 return (
                   <div
-                    className={`${styles["flex"]} ${styles["fullWidth"]} ${styles["checkout_flex"]}`}
+                    className={`${styles['flex']} ${styles['fullWidth']} ${styles['checkout_flex']}`}
                     key={displayOrder.id}
                   >
                     <div className={styles.cartFlexOrder}>
@@ -210,7 +217,7 @@ export default function Cart() {
             </div>
           </div>
           <aside
-            className={`${styles["cartAside"]} ${styles["cartFlexSize2"]}`}
+            className={`${styles['cartAside']} ${styles['cartFlexSize2']}`}
           >
             <div className={styles.cartAsideText}>
               <h2>Your Shopping Cart</h2>
@@ -218,14 +225,14 @@ export default function Cart() {
               <h3>Taxes: ${taxesPrice(totalCost)}</h3>
               <h3
                 style={{
-                  borderBottom: "2px solid",
-                  width: "40%",
-                  marginBottom: "0.5rem",
+                  borderBottom: '2px solid',
+                  width: '40%',
+                  marginBottom: '0.5rem',
                 }}
               >
                 Shipping: ${shippingCost}
               </h3>
-              <h3 style={{ marginBottom: "0.5rem" }}>
+              <h3 style={{ marginBottom: '0.5rem' }}>
                 Total: $
                 {(totalPrice =
                   Number(convertPrice(totalCost)) +
@@ -233,7 +240,7 @@ export default function Cart() {
                   shippingCost).toFixed(2)}
               </h3>
               <form
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
                 onSubmit={handleSubmit}
                 className={styles.checkoutForm}
               >
@@ -347,9 +354,9 @@ export default function Cart() {
                 </div> */}
                 <div
                   style={{
-                    width: "110%",
-                    margin: "auto",
-                    justifyContent: "center",
+                    width: '110%',
+                    margin: 'auto',
+                    justifyContent: 'center',
                   }}
                 >
                   {/* <Link href="/Products"> */}
@@ -366,16 +373,16 @@ export default function Cart() {
         <div
           className={styles.cartConatiner}
           style={{
-            padding: "3rem",
-            textAlign: "center",
-            maxWidth: "700px ",
-            width: "100%",
+            padding: '3rem',
+            textAlign: 'center',
+            maxWidth: '700px ',
+            width: '100%',
           }}
         >
-          <h1 style={{ paddingBottom: "2rem" }}>
+          <h1 style={{ paddingBottom: '2rem' }}>
             Sorry! There's No Items In Your Shopping Cart
           </h1>
-          <h2 style={{ paddingBottom: "2rem" }}>Add Some To Your Cart</h2>
+          <h2 style={{ paddingBottom: '2rem' }}>Add Some To Your Cart</h2>
           <button>Shop Now</button>
         </div>
       )}

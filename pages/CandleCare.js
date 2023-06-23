@@ -1,9 +1,17 @@
-import React from "react";
-import CandleCareCom from "../components/CandleCare";
+import Head from 'next/head';
+import React from 'react';
+
+import CandleCareCom from '../components/CandleCare';
 
 function CandleCare() {
   return (
     <div>
+      <Head>
+        <title>RCBrilliance - Candle Care</title>
+        <meta name="description" content="RCBrilliance Candle Care Page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <CandleCareCom />
     </div>
   );
