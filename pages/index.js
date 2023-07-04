@@ -1,10 +1,11 @@
-import Head from "next/head";
-import Hero from "../components/Hero/hero";
-import AboutProducts from "../components/AboutCandles";
-import FeatureProducts from "../components/FeatureProducts/FeatureProducts";
+import Head from 'next/head';
+
+import AboutProducts from '../components/AboutCandles';
+import FeatureProducts from '../components/FeatureProducts/FeatureProducts';
+import Hero from '../components/Hero/hero';
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/featureProducts");
+  const res = await fetch('https://www.rcbrilliance.com/api/featureProducts');
   const data = await res.json();
 
   return {

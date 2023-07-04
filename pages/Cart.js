@@ -46,13 +46,16 @@ export default function Cart() {
       // console.log("ID PASSED", orders);
 
       try {
-        const res = await fetch(`http://localhost:3000/api/customerOrder`, {
-          method: 'POST',
-          body: JSON.stringify({ orders }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        const res = await fetch(
+          `https://www.rcbrilliance.com/api/customerOrder`,
+          {
+            method: 'POST',
+            body: JSON.stringify({ orders }),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
         const data = await res.json();
         setDisplayOrders(data);
       } catch (err) {

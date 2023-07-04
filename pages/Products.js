@@ -4,7 +4,7 @@ import React from 'react';
 import ProductComponent from '../components/Products/Products';
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/api/productsSqu');
+  const res = await fetch('https://www.rcbrilliance.com/api/productsSqu');
   const data = await res.json();
 
   return {

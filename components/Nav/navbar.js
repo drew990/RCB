@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-import Logo from '../../images/Logo/Logo.png';
+import Logo from '../../images/Logo/logo.png';
 import about from '../../images/NavLogos/about.png';
 import basket from '../../images/NavLogos/basket.png';
 import candle from '../../images/NavLogos/candle.png';
