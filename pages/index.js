@@ -3,10 +3,10 @@ import Head from 'next/head';
 import AboutProducts from '../components/AboutCandles';
 import FeatureProducts from '../components/FeatureProducts/FeatureProducts';
 import Hero from '../components/Hero/hero';
+import { loadFeatureProducts } from '../lib/LoadFeatureProducts';
 
 export const getStaticProps = async () => {
-  const res = await fetch('www.rcbrilliance.com/api/featureProducts');
-  const data = await res.json();
+  const data = await loadFeatureProducts();
 
   return {
     props: {

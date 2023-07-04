@@ -2,10 +2,10 @@ import Head from 'next/head';
 import React from 'react';
 
 import ProductComponent from '../components/Products/Products';
+import { loadProducts } from '../lib/LoadProducts';
 
 export const getStaticProps = async () => {
-  const res = await fetch('www.rcbrilliance.com/api/productsSqu');
-  const data = await res.json();
+  const data = await loadProducts();
 
   return {
     props: { products: data },
