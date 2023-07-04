@@ -79,18 +79,13 @@ export default function Cart() {
     const productId = e.target.id;
     let storage = JSON.parse(window.localStorage.cart);
 
-    console.log(storage);
-    // Deletes every ID that was given
-    for (let x = 0; x < storage.length; x++) {
-      if (storage[x] == productId) {
-        storage.splice(x, 1);
-        x--;
-      }
-    }
+    // Deletes ID that was given
+    delete storage[productId];
+
     // Re-Enters in data into local storage
     localStorage.setItem('cart', JSON.stringify(storage));
     // Reloads Page to give the updated cart
-    // location.reload();
+    location.reload();
   }
 
   // Gets product quantity and price then returns total
@@ -380,7 +375,7 @@ export default function Cart() {
           }}
         >
           <h1 style={{ paddingBottom: '2rem' }}>
-            Sorry! There's No Items In Your Shopping Cart
+            Sorry! There&apos;s No Items In Your Shopping Cart
           </h1>
           <h2 style={{ paddingBottom: '2rem' }}>Add Some To Your Cart</h2>
           <button>Shop Now</button>

@@ -20,12 +20,12 @@ function AboutMe() {
         >
           <h2>About Me</h2>
           <p>
-            I've always loved candles! Besides the pleasant aromas that fill the
-            air of your home, there is something calming about them. During what
-            was the most challenging time in the world, a global pandemic, we
-            all had to stop, slow down, and reflect on what was most important
-            to us, our health and families. We each had to look into our inner
-            selves and find a passion and purpose to the madness.
+            I&apos;ve always loved candles! Besides the pleasant aromas that
+            fill the air of your home, there is something calming about them.
+            During what was the most challenging time in the world, a global
+            pandemic, we all had to stop, slow down, and reflect on what was
+            most important to us, our health and families. We each had to look
+            into our inner selves and find a passion and purpose to the madness.
           </p>
           <br />
           <p>
@@ -43,7 +43,9 @@ function AboutMe() {
             and brilliant!
           </p>
           <br />
-          <p style={{ fontWeight: 'bold' }}>"Let Your Brilliance Shine"</p>
+          <p style={{ fontWeight: 'bold' }}>
+            &quot;Let Your Brilliance Shine&quot;
+          </p>
         </div>
         <div
           initial={{ opacity: 0 }}

@@ -31,7 +31,9 @@ function CandleCare() {
               />
             </div>
             <ul>
-              <li>Wick should be trimmed to 1/4" each time you burn candle</li>
+              <li>
+                Wick should be trimmed to 1/4&quot; each time you burn candle
+              </li>
               <li>If wick is bent, straighten before lighting</li>
             </ul>
           </motion.div>
