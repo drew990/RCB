@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { NotificationManager } from "react-notifications";
+import React from 'react';
+import { NotificationManager } from 'react-notifications';
 
 function AddToCartButton({ productID }) {
   function addToCart(e) {
@@ -10,7 +10,7 @@ function AddToCartButton({ productID }) {
     } else {
       setOrders([e.target.value]);
     }
-    NotificationManager.success("Successfully Added to Cart!", "Success", 2000);
+    NotificationManager.success('Successfully Added to Cart!', 'Success', 2000);
     // localStorage.setItem("cart", JSON.stringify(orders));
   }
 

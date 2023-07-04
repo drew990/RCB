@@ -1,4 +1,4 @@
-const { Client, Environment, ApiError } = require("square");
+const { Client, Environment } = require('square');
 
 const client = new Client({
   // NOTE:
@@ -16,7 +16,7 @@ const client = new Client({
 
 export default async function handler(req, res) {
   //Gets req Method type
-  if (req.method === "POST") {
+  if (req.method === 'POST') {
     // Setting variables up for fetching IDS
     const orderIds = req.body.orders;
     // data for holding the API
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
           data[i].itemData.imageIds[0]
         );
 
-        data[i].itemData["imageIds"] = response.result.object;
+        data[i].itemData['imageIds'] = response.result.object;
       }
 
       // console.log(data[0].itemData.imageIds);
@@ -48,7 +48,12 @@ export default async function handler(req, res) {
       //   data[i] = [data[i], counts[data[i][0].id]];
       // }
     } catch (err) {
-      console.log(err);
+      if (err instanceof TypeError) {
+        // console.log('I AM A TYPE ERROR');
+        res.status(204);
+      }
+
+      // console.log('Error In CUSTOMER CART', err);
     }
 
     // DO NOT DELETE

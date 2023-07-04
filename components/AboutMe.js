@@ -1,8 +1,9 @@
-import Image from "next/image";
-import React from "react";
-import Renett from "../images/renett.png";
-import styles from "../styles/Home.module.css";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import React from 'react';
+
+import Renett from '../images/renett.png';
+import styles from '../styles/Home.module.css';
 
 function AboutMe() {
   return (
@@ -15,7 +16,7 @@ function AboutMe() {
         exit={{ opacity: 0 }}
       >
         <div
-          className={`${styles["aboutFlex1"]} ${styles["about-text-container"]}`}
+          className={`${styles['aboutFlex1']} ${styles['about-text-container']}`}
         >
           <h2>About Me</h2>
           <p>
@@ -42,7 +43,7 @@ function AboutMe() {
             and brilliant!
           </p>
           <br />
-          <p style={{ fontWeight: "bold" }}>"Let Your Brilliance Shine"</p>
+          <p style={{ fontWeight: 'bold' }}>"Let Your Brilliance Shine"</p>
         </div>
         <div
           initial={{ opacity: 0 }}
@@ -50,12 +51,12 @@ function AboutMe() {
           transition={{ duration: 0.5 }}
           exit={{ opacity: 0 }}
           className={styles.aboutFlex2}
-          style={{ textAlign: "center" }}
+          style={{ textAlign: 'center' }}
         >
           <div className={styles.aboutFlexImg2}>
             <Image
               src={Renett}
-              alt="Filler Pic"
+              alt="Owner Pic"
               // width="74%"
               // height="100%"
               layout="responsive"

@@ -905,11 +905,25 @@ footer .links:hover {
   .candleCareTextContainer {
     margin: 0 auto 2rem auto;
   }
-
+  .cartConatiner {
+    max-width: 100%;
+    flex-direction: column-reverse;
+    margin: 1rem auto;
+    /* padding: 5rem 2rem; */
+  }
+  .cartBackground {
+    padding: 100px 0rem 2rem 0rem;
+  }
   .cartFlex {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap-reverse;
+  }
+  .checkout_flex {
+    padding: 0;
+  }
+  .cartFlexSize1 h3 {
+    font-size: 18px;
   }
 
   .cartFlexSize2 {

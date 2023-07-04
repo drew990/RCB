@@ -1,4 +1,4 @@
-const { Client, Environment, ApiError } = require("square");
+const { Client, Environment } = require('square');
 
 const client = new Client({
   // NOTE:
@@ -15,14 +15,14 @@ const client = new Client({
 });
 
 const featureItems = [
-  "X2UQLJ4Z7Z3B3JTKQAV5NZN7",
-  "RTIMESEUB77SPOKYVVZKKI7P",
-  "EINDQSR3JKFG7QFG7EV4DAYV",
+  'X2UQLJ4Z7Z3B3JTKQAV5NZN7',
+  'RTIMESEUB77SPOKYVVZKKI7P',
+  'EINDQSR3JKFG7QFG7EV4DAYV',
 ];
 
 export default async function handler(req, res) {
   // GETS the data from Square
-  if (req.method === "GET") {
+  if (req.method === 'GET') {
     let items = [];
     const data = { test: 2 };
 
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
         const response = await client.catalogApi.retrieveCatalogObject(
           items[i].itemData.imageIds[0]
         );
-        items[i].itemData["imageIds"] = response.result.object;
+        items[i].itemData['imageIds'] = response.result.object;
         // response.result.object
 
         // console.log(response.result.object);

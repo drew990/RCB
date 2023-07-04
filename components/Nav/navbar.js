@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import styles from "../../styles/Home.module.css";
-import Logo from "../../images/Logo/Logo.png";
-import Image from "next/image";
-import cartImg from "../../images/cart.png";
-import { motion } from "framer-motion";
-import about from "../../images/NavLogos/about.png";
-import basket from "../../images/NavLogos/basket.png";
-import candle from "../../images/NavLogos/candle.png";
-import form from "../../images/NavLogos/form.png";
-import help from "../../images/NavLogos/help.png";
+// import cartImg from "../../images/cart.png";
+import { motion } from 'framer-motion';
+import { Spin as Hamburger } from 'hamburger-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
-import { Spin as Hamburger } from "hamburger-react";
+import Logo from '../../images/Logo/Logo.png';
+import about from '../../images/NavLogos/about.png';
+import basket from '../../images/NavLogos/basket.png';
+import candle from '../../images/NavLogos/candle.png';
+import form from '../../images/NavLogos/form.png';
+import help from '../../images/NavLogos/help.png';
+import styles from '../../styles/Home.module.css';
+
 // import { MdOutlineShoppingCart } from "react-icons/md";
 // import commerce from "../lib/commerce";
 
@@ -47,7 +48,7 @@ const AppNavbar = () => {
     const handleLocalStorage = () => {
       // console.log("In handlelocalstorage");
 
-      let items = JSON.parse(localStorage.getItem("cart"));
+      let items = JSON.parse(localStorage.getItem('cart'));
       // console.log("ITEMS:", items);
 
       if (items != null) {
@@ -61,15 +62,15 @@ const AppNavbar = () => {
       }
     };
 
-    window.addEventListener("storage", handleLocalStorage());
+    window.addEventListener('storage', handleLocalStorage());
     // return () => window.removeEventListener("storage", handleLocalStorage());
   }, []);
 
   return (
     <nav>
       <Link onClick={() => setOpen(false)} href="/">
-        <div className={`${styles["LogoHover"]}`}>
-          <Image src={Logo} width={85} height={45} />
+        <div className={`${styles['LogoHover']}`}>
+          <Image src={Logo} width={85} height={45} alt="RCBrilliance Logo" />
         </div>
       </Link>
 
@@ -83,7 +84,7 @@ const AppNavbar = () => {
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              transition={{ type: "just" }}
+              transition={{ type: 'just' }}
             >
               <li>
                 <Link href="/Products">
@@ -147,7 +148,7 @@ const AppNavbar = () => {
               </li>
             </motion.ul>
           ) : (
-            ""
+            ''
           )}
         </div>
       ) : (

@@ -1,4 +1,4 @@
-const { Client, Environment, ApiError } = require("square");
+const { Client, Environment } = require('square');
 const client = new Client({
   // NOTE:
   // IF you put in a new token, the server must be
@@ -31,7 +31,7 @@ async function getOrderInfo(orderIDs) {
           response.result.object.itemData.variations[0].itemVariationData
             .priceMoney.amount
         ),
-        currency: "USD",
+        currency: 'USD',
       },
     };
 
@@ -44,7 +44,7 @@ async function getOrderInfo(orderIDs) {
 
 export default async function handler(req, res) {
   console.log(req.method);
-  if (req.method === "POST") {
+  if (req.method === 'POST') {
     try {
       // VARIABLES
       // ===============
@@ -57,38 +57,38 @@ export default async function handler(req, res) {
 
       // Gets location ID and enter into shipping var
       const response = await client.locationsApi.listLocations();
-      shippingInfo["locationId"] = response.result.locations[0].id;
+      shippingInfo['locationId'] = response.result.locations[0].id;
 
       try {
         // Gets Orders Name, quantity, and price
 
-        var orderInfo = await getOrderInfo(shippingInfo["orderIds"]);
-        console.log("OrderInfo After then: ", orderInfo);
+        var orderInfo = await getOrderInfo(shippingInfo['orderIds']);
+        console.log('OrderInfo After then: ', orderInfo);
 
         const checkoutLink = await client.checkoutApi.createPaymentLink({
           // idempotencyKey
-          idempotencyKey: shippingInfo["idempotency"],
+          idempotencyKey: shippingInfo['idempotency'],
           // Customer Order
           order: {
-            locationId: shippingInfo["locationId"],
+            locationId: shippingInfo['locationId'],
             // Customer Order Details
             lineItems: orderInfo,
             taxes: [
               {
-                name: "Sales Tax",
-                percentage: "9.5",
-                scope: "ORDER",
+                name: 'Sales Tax',
+                percentage: '9.5',
+                scope: 'ORDER',
               },
             ],
           },
           checkoutOptions: {
-            merchantSupportEmail: "rcbrilliance@gmail.com",
+            merchantSupportEmail: 'rcbrilliance@gmail.com',
             askForShippingAddress: true,
             shippingFee: {
-              name: "Shipping Fee",
+              name: 'Shipping Fee',
               charge: {
                 amount: 700,
-                currency: "USD",
+                currency: 'USD',
               },
             },
           },

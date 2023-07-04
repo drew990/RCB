@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const { Client, Environment, ApiError } = require("square");
+const { Client, Environment } = require('square');
 
 const client = new Client({
   // NOTE:
@@ -15,11 +15,11 @@ const client = new Client({
   environment: Environment.Production,
 });
 
-const { locationsApi, catalogApi } = client;
+const { catalogApi } = client;
 
 export default async function handler(req, res) {
   // GETS the data from Square
-  if (req.method === "GET") {
+  if (req.method === 'GET') {
     // console.log("IN GET METHOD");
 
     try {
@@ -33,7 +33,7 @@ export default async function handler(req, res) {
 
       //Pushes Items into the item array
       for (let i = 0; i < catalogs.length; i++) {
-        if (catalogs[i].type === "ITEM") {
+        if (catalogs[i].type === 'ITEM') {
           items.push(catalogs[i]);
           // console.log(catalogs[i].itemData);
           try {
@@ -97,7 +97,7 @@ export default async function handler(req, res) {
     } catch (error) {
       console.log(error);
     }
-  } else if (req.method === "POST") {
+  } else if (req.method === 'POST') {
     try {
     } catch (err) {
       console.log(err);

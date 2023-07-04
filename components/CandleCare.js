@@ -1,15 +1,15 @@
-import Image from "next/image";
-import React from "react";
-import styles from "../styles/Home.module.css";
-import Insta from "../images/insta.png";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import React from 'react';
+
 // ICONS IMPORTED
-import Caution from "../images/CandleCareIcons/caution.png";
-import fireExt from "../images/CandleCareIcons/fire-extinguisher.png";
-import inclination from "../images/CandleCareIcons/inclination.png";
-import table from "../images/CandleCareIcons/table.png";
-import time from "../images/CandleCareIcons/time.png";
-import trim from "../images/CandleCareIcons/trim.png";
+import Caution from '../images/CandleCareIcons/caution.png';
+import fireExt from '../images/CandleCareIcons/fire-extinguisher.png';
+import inclination from '../images/CandleCareIcons/inclination.png';
+import table from '../images/CandleCareIcons/table.png';
+import time from '../images/CandleCareIcons/time.png';
+import trim from '../images/CandleCareIcons/trim.png';
+import styles from '../styles/Home.module.css';
 
 function CandleCare() {
   return (
@@ -18,7 +18,7 @@ function CandleCare() {
       <div className={styles.candleCaresContainer}>
         <div className={styles.flex}>
           <motion.div
-            className={`${styles["flexRow"]} ${styles["candleCareTextContainer"]} ${styles["centerAdjustment"]}`}
+            className={`${styles['flexRow']} ${styles['candleCareTextContainer']} ${styles['centerAdjustment']}`}
             whileHover={{ scale: 1.05 }}
           >
             <div className={styles.candleCareImg}>
@@ -37,7 +37,7 @@ function CandleCare() {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className={`${styles["flexRow"]} ${styles["candleCareTextContainer"]} ${styles["centerAdjustment"]}`}
+            className={`${styles['flexRow']} ${styles['candleCareTextContainer']} ${styles['centerAdjustment']}`}
           >
             <div className={styles.candleCareImg}>
               <Image
@@ -65,7 +65,7 @@ function CandleCare() {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className={`${styles["flexRow"]} ${styles["candleCareTextContainer"]} ${styles["centerAdjustment"]}`}
+            className={`${styles['flexRow']} ${styles['candleCareTextContainer']} ${styles['centerAdjustment']}`}
           >
             <div className={styles.candleCareImg}>
               <Image
@@ -85,7 +85,7 @@ function CandleCare() {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className={`${styles["flexRow"]} ${styles["candleCareTextContainer"]} ${styles["centerAdjustment"]}`}
+            className={`${styles['flexRow']} ${styles['candleCareTextContainer']} ${styles['centerAdjustment']}`}
           >
             <div className={styles.candleCareImg}>
               <Image
@@ -105,7 +105,7 @@ function CandleCare() {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className={`${styles["flexRow"]} ${styles["candleCareTextContainer"]} ${styles["centerAdjustment"]}`}
+            className={`${styles['flexRow']} ${styles['candleCareTextContainer']} ${styles['centerAdjustment']}`}
           >
             <div className={styles.candleCareImg}>
               <Image
@@ -125,7 +125,7 @@ function CandleCare() {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className={`${styles["flexRow"]} ${styles["candleCareTextContainer"]} ${styles["centerAdjustment"]}`}
+            className={`${styles['flexRow']} ${styles['candleCareTextContainer']} ${styles['centerAdjustment']}`}
           >
             <div className={styles.candleCareImg}>
               <Image
@@ -145,7 +145,7 @@ function CandleCare() {
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className={`${styles["flexRow"]} ${styles["candleCareTextContainer"]} ${styles["centerAdjustment"]}`}
+            className={`${styles['flexRow']} ${styles['candleCareTextContainer']} ${styles['centerAdjustment']}`}
           >
             <div className={styles.candleCareImg}>
               <Image
