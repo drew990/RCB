@@ -15,6 +15,15 @@ export default function Cart() {
   const [orders, setOrders] = useState();
   const [displayOrders, setDisplayOrders] = useState([]);
 
+  const checkEnvironment = () => {
+    let base_url =
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : 'https://www.rcbrilliance.com/';
+
+    return base_url;
+  };
+
   // VALUES FROM INPUT FORM
   // const [firstName, setFirstName] = useState('');
   // const [lastName, setLastName] = useState('');
@@ -46,13 +55,16 @@ export default function Cart() {
       // console.log("ID PASSED", orders);
 
       try {
-        const res = await fetch(`www.rcbrilliance.com/api/customerOrder`, {
-          method: 'POST',
-          body: JSON.stringify({ orders }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        const res = await fetch(
+          checkEnvironment().concat('/api/customerOrder'),
+          {
+            method: 'POST',
+            body: JSON.stringify({ orders }),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
         const data = await res.json();
         setDisplayOrders(data);
       } catch (err) {
