@@ -5,7 +5,7 @@ import FeatureProducts from '../components/FeatureProducts/FeatureProducts';
 import Hero from '../components/Hero/hero';
 import { loadFeatureProducts } from '../lib/LoadFeatureProducts';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const data = await loadFeatureProducts();
 
   return {

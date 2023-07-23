@@ -4,7 +4,7 @@ import React from 'react';
 import ProductComponent from '../components/Products/Products';
 import { loadProducts } from '../lib/LoadProducts';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const data = await loadProducts();
 
   return {
