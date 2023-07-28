@@ -77,7 +77,7 @@ export default function Cart() {
   }, [orders]);
 
   function convertPrice(amount) {
-    return amount / 100;
+    return (amount / BigInt(100)).toString();
   }
 
   function removeItem(e) {
