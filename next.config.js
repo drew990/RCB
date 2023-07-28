@@ -2,11 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["cdn.chec.io"],
+    domains: ['cdn.chec.io'],
   },
   images: {
-    domains: ["items-images-production.s3.us-west-2.amazonaws.com"],
-    // domains: ["square-catalog-sandbox.s3.amazonaws.com"],
+    domains: [
+      'square-catalog-sandbox.s3.amazonaws.com',
+      'items-images-production.s3.us-west-2.amazonaws.com',
+    ],
   },
   webpack: (config) => {
     // this will override the experiments
