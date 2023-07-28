@@ -69,7 +69,7 @@ export default function FeatureProducts({ products }) {
   }
 
   function convertPrice(amount) {
-    return (amount / BigInt(100)).toString();
+    return amount / 100;
   }
   return (
     <div className={`${styles['container']} `} style={{ textAlign: 'center' }}>
