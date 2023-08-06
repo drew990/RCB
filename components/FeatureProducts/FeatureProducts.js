@@ -8,6 +8,8 @@ import FeatureProductCards from './FeatureProductCards/FeatureProductCards';
 export default function FeatureProducts({ products }) {
   let [orders, setOrders] = useState();
 
+  console.log(products);
+
   useEffect(() => {
     let data = window.localStorage.getItem('cart');
     if (data !== null) setOrders(JSON.parse(data));
@@ -85,6 +87,7 @@ export default function FeatureProducts({ products }) {
                 product.itemData.variations[0].itemVariationData.priceMoney
                   .amount
               )}
+              description={product.itemData.description}
               addToCart={addToCart}
             />
           </div>

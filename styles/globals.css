@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("react-notifications/lib/notifications.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('react-notifications/lib/notifications.css');
 
 html,
 body {
   background-color: var(--primary-Color);
   padding: 0;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 :root {
@@ -144,7 +144,7 @@ section h2 {
 }
 
 button {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   border: 2px solid rgba(0, 0, 0, 0.75);
   color: rgba(0, 0, 0, 0.75);
@@ -201,7 +201,7 @@ form h2 {
 }
 
 form button {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   border: 2px solid rgba(256, 256, 256, 0.75);
   color: rgba(256, 256, 256, 0.75);
@@ -229,7 +229,7 @@ label {
 }
 
 input {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   outline: none;
   width: 100%;
@@ -254,7 +254,7 @@ input:focus {
 
 textarea {
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   outline: none;
   width: 100%;
   padding: 0.5rem 1rem;

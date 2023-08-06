@@ -153,6 +153,7 @@ footer .links:hover {
 .textContainer {
   width: 80%;
   max-width: 500px;
+  min-width: 350px;
   margin: 0 auto 20% auto;
 }
 
@@ -545,15 +546,23 @@ footer .links:hover {
 }
 
 /* Single Page Product CSS */
-.product-Img {
-  width: 35%;
-  max-width: 500px;
-  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.5);
-  height: min-content;
+.singleProductText {
+  max-width: 600px;
+}
+.singleProductText h1 {
+  color: var(--third-Color);
+  margin-bottom: 1rem;
 }
 
-.productDescription {
-  text-align: left;
+.singleProductText h2 {
+  color: var(--third-Color);
+  text-align: center;
+}
+
+.singleProductText .border {
+  border: solid 2px var(--third-Color);
+  border-radius: 5px;
+  width: 100%;
   margin-bottom: 2rem;
 }
 
@@ -779,6 +788,9 @@ footer .links:hover {
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
   } */
   /*  */
+  .singleProductText h1 {
+    margin: 3rem 0 1rem 0;
+  }
 
   .aboutCandlesContainer div {
     padding-left: 1rem;
@@ -892,6 +904,9 @@ footer .links:hover {
 }
 
 @media (max-width: 800px) {
+  .container {
+    padding-top: 7rem;
+  }
   .aboutFlex2 {
     width: 90%;
     overflow: hidden;

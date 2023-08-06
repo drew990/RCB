@@ -84,6 +84,7 @@ export default function Products({ products }) {
                   product[0].itemData.variations[0].itemVariationData.priceMoney
                     .amount
                 )}
+                description={product[0].itemData.description}
                 addToCart={addToCart}
               />
             </div>

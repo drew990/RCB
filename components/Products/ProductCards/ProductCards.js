@@ -1,29 +1,38 @@
-import { useState } from "react";
-import styles from "../../../styles/Home.module.css";
-import Image from "next/image";
-import { NotificationManager } from "react-notifications";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { NotificationManager } from 'react-notifications';
 
-function ProductCards({ productID, ImageURL, name, price, addToCart }) {
+import styles from '../../../styles/Home.module.css';
+
+function ProductCards({
+  productID,
+  ImageURL,
+  name,
+  price,
+  description,
+  addToCart,
+}) {
   let [quantity, setQuantity] = useState(1);
 
   function addQuantity(e) {
     e.preventDefault();
 
     setQuantity((quantity = quantity + 1));
-    console.log("addQuantity has been click!", quantity);
+    console.log('addQuantity has been click!', quantity);
   }
 
   function subtractQuantity(e) {
     e.preventDefault();
 
     if (quantity == 1) {
-      NotificationManager.error("Can't Subtract Anymore!", "Error", 2000);
+      NotificationManager.error("Can't Subtract Anymore!", 'Error', 2000);
     } else {
       setQuantity((quantity = quantity - 1));
     }
 
-    console.log("subtractQuantity has been click!", quantity);
+    console.log('subtractQuantity has been click!', quantity);
   }
 
   return (
@@ -35,26 +44,40 @@ function ProductCards({ productID, ImageURL, name, price, addToCart }) {
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0 }}
     >
-      <Image
-        src={ImageURL}
-        alt="Image Here"
-        layout="responsive"
-        width={50}
-        height={50}
-        blurDataURL="URL"
-        placeholder="blur"
-      />
+      <Link
+        href={{
+          pathname: `/Candles/${productID}`,
+          query: {
+            id: productID,
+            name: name,
+            URL: ImageURL,
+            price: price,
+            description: description,
+          },
+        }}
+      >
+        <Image
+          src={ImageURL}
+          alt="Image Here"
+          layout="responsive"
+          width={50}
+          height={50}
+          blurDataURL="URL"
+          placeholder="blur"
+        />
+      </Link>
       <div className={styles.cardText}>
         <h4>{name}</h4>
-        <h4 style={{ padding: "0" }}>${price}</h4>
-        <div className={`${styles["flexRow"]} ${styles["cardAddCart"]}`}>
+        <h4 style={{ padding: '0' }}>${price}</h4>
+        <div className={`${styles['flexRow']} ${styles['cardAddCart']}`}>
           <div>
             <motion.h4
+              style={{ cursor: 'pointer' }}
               whileHover={{ scale: 1.5 }}
               whileTap={{ scale: 0.95 }}
-              onClick={addQuantity}
+              onClick={subtractQuantity}
             >
-              +
+              -
             </motion.h4>
           </div>
           <div>
@@ -62,11 +85,12 @@ function ProductCards({ productID, ImageURL, name, price, addToCart }) {
           </div>
           <div>
             <motion.h4
+              style={{ cursor: 'pointer' }}
               whileHover={{ scale: 1.5 }}
               whileTap={{ scale: 0.95 }}
-              onClick={subtractQuantity}
+              onClick={addQuantity}
             >
-              -
+              +
             </motion.h4>
           </div>
         </div>

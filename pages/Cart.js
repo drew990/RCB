@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { NotificationManager } from 'react-notifications';
@@ -390,7 +391,9 @@ export default function Cart() {
             Sorry! There&apos;s No Items In Your Shopping Cart
           </h1>
           <h2 style={{ paddingBottom: '2rem' }}>Add Some To Your Cart</h2>
-          <button>Shop Now</button>
+          <Link href="/Products">
+            <button>Shop Now</button>
+          </Link>
         </div>
       )}
     </div>
