@@ -115,7 +115,7 @@ nav ul {
   padding: 2rem 0;
   top: 80px;
   left: 0%;
-  background-color: var(--secondary-Color);
+  background-color: var(--primary-Color);
   width: 100%;
   z-index: 1;
 }
@@ -287,7 +287,7 @@ textarea:focus {
     flex-wrap: wrap-reverse;
   }
   nav {
-    background-color: var(--secondary-Color);
+    background-color: var(--primary-Color);
     padding: 1rem;
     margin: 0;
     width: 100%;

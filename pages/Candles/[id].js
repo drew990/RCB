@@ -6,16 +6,6 @@ import { NotificationManager } from 'react-notifications';
 
 import styles from '../../styles/Home.module.css';
 
-// Checks Environment URL
-const checkEnvironment = () => {
-  let base_url =
-    process.env.NODE_ENV === 'development'
-      ? 'http://localhost:3000'
-      : 'https://www.rcbrilliance.com/';
-
-  return base_url;
-};
-
 export default function featureProducts() {
   let [orders, setOrders] = useState();
   let [quantity, setQuantity] = useState(1);

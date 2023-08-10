@@ -11,7 +11,10 @@ function ShippingPolicy() {
         <meta name="description" content="RCBrilliance Shipping Policy Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={`${styles['about-text-container']}`}>
+      <div
+        style={{ marginTop: '4rem' }}
+        className={`${styles['about-text-container']}`}
+      >
         <h1>SHIPPING POLICY</h1>
         <br />
         <p style={{ fontStyle: 'italic' }}>
