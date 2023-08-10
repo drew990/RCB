@@ -11,7 +11,10 @@ function ReturnPolicy() {
         <meta name="description" content="RCBrilliance Return Policy Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={`${styles['about-text-container']}`}>
+      <div
+        style={{ marginTop: '4rem' }}
+        className={`${styles['about-text-container']}`}
+      >
         <h1>RETURN POLICY</h1>
         <br />
         <p>

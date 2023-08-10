@@ -14,7 +14,10 @@ function Terms() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={`${styles['about-text-container']}`}>
+      <div
+        style={{ marginTop: '4rem' }}
+        className={`${styles['about-text-container']}`}
+      >
         <h1>PURCHASE AND USE TERMS AND CONDITIONS</h1>
         <br />
         <p>

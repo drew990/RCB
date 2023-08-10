@@ -20,8 +20,6 @@ function AboutMe() {
         >
           <h2>About Me</h2>
           <p>
-            I&apos;ve always loved candles! Besides the pleasant aromas that
-            fill the air of your home, there is something calming about them.
             During what was the most challenging time in the world, a global
             pandemic, we all had to stop, slow down, and reflect on what was
             most important to us, our health and families. We each had to look
@@ -29,12 +27,14 @@ function AboutMe() {
           </p>
           <br />
           <p>
-            Making candles was always something I wanted to try. As I began to
-            experiment, I have learned and continue to learn more about candle
-            making. I put thought and care into the products being used to give
-            you assurance that the candles being burned in your home are safer
-            than other products. Using 100% soy wax, eco friendly wicks made of
-            cotton, and fragrance scents that are phthalate-free.
+            I&apos;ve always loved candles! Besides the pleasant aromas that
+            fill the air of your home, there is something calming about them. By
+            making candles, I have learned and continue to learn more about the
+            art of candle making. So you can burn my candles with confidence,
+            knowing that you&apos;re not only getting a beautiful scent, but
+            also a product that&apos;s safer for you and your family. Using 100%
+            soy wax, eco friendly wicks made of cotton, and fragrance scents
+            that are phthalate-free.
           </p>
           <br />
           <p>
