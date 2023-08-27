@@ -62,7 +62,7 @@ export default function Hero() {
         </div>
 
         <div style={{ width: '45%', margin: '0 auto' }}>
-          <Link href="/Products">
+          <Link href="/products">
             <button
               id="home-button"
               className={styles.blackButton}

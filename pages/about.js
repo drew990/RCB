@@ -3,7 +3,7 @@ import React from 'react';
 
 import AboutMeCom from '../components/AboutMe';
 
-function AboutMe() {
+function About() {
   return (
     <div>
       <Head>
@@ -17,4 +17,4 @@ function AboutMe() {
   );
 }
 
-export default AboutMe;
+export default About;
