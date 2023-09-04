@@ -55,7 +55,7 @@ const AppNavbar = () => {
         let productInCartNum = 0;
 
         for (const [key, value] of Object.entries(items)) {
-          productInCartNum = productInCartNum + value.Quantity;
+          productInCartNum = productInCartNum + value.quantity;
         }
 
         setCart(productInCartNum);
@@ -87,7 +87,7 @@ const AppNavbar = () => {
               transition={{ type: 'just' }}
             >
               <li>
-                <Link href="/Products">
+                <Link href="/products">
                   <motion.h4
                     whileTap={{ scale: 0.9 }}
                     whileHover={{ scale: 1.1 }}
@@ -99,7 +99,7 @@ const AppNavbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/CandleCare">
+                <Link href="/care">
                   <motion.h4
                     whileTap={{ scale: 0.9 }}
                     whileHover={{ scale: 1.1 }}
@@ -111,7 +111,7 @@ const AppNavbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/AboutMe">
+                <Link href="/about">
                   <motion.h4
                     whileTap={{ scale: 0.9 }}
                     whileHover={{ scale: 1.1 }}
@@ -123,7 +123,7 @@ const AppNavbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/Contact">
+                <Link href="/contact">
                   <motion.h4
                     whileTap={{ scale: 0.9 }}
                     whileHover={{ scale: 1.1 }}
@@ -135,7 +135,7 @@ const AppNavbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/Cart">
+                <Link href="/cart">
                   <motion.h4
                     whileTap={{ scale: 0.9 }}
                     whileHover={{ scale: 1.1 }}
@@ -153,11 +153,11 @@ const AppNavbar = () => {
         </div>
       ) : (
         <section>
-          <Link href="/Products">Products</Link>
-          <Link href="/CandleCare">Candle Care</Link>
-          <Link href="/AboutMe">About</Link>
-          <Link href="/Contact">Contact</Link>
-          <Link href="/Cart">
+          <Link href="/products">Products</Link>
+          <Link href="/care">Candle Care</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/cart">
             Cart
             {/* <div style={{ position: "relative" }}>
               <div>

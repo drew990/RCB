@@ -25,7 +25,7 @@ async function getOrderInfo(orderIDs) {
     // Sets the Order
     let orderDic = {
       name: response.result.object.itemData.name,
-      quantity: value.Quantity.toString(),
+      quantity: value.toString(),
       basePriceMoney: {
         amount: Number(
           response.result.object.itemData.variations[0].itemVariationData
