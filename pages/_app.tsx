@@ -5,8 +5,10 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 // @ts-ignore Could not find a declaration file for module 'react-notifications'.
 import { NotificationContainer } from 'react-notifications';
+import { Provider } from 'react-redux';
 
 import Layout from '@/components/Layout/layout';
+import { wrapper } from '@/stores';
 
 // function Loading() {
 // const router = useRouter();
@@ -35,13 +37,16 @@ import Layout from '@/components/Layout/layout';
 //   );
 // }
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, ...rest }: AppProps) {
+  const { store, props } = wrapper.useWrappedStore(rest);
   return (
-    <Layout>
-      {/* <Loading /> */}
-      <NotificationContainer />
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        {/* <Loading /> */}
+        <NotificationContainer />
+        <Component {...props.pageProps} />
+      </Layout>
+    </Provider>
   );
 }
 

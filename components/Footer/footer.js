@@ -17,16 +17,16 @@ export default function footer() {
           <Link href="/">
             <p className={styles.links}>Home</p>
           </Link>
-          <Link href="/Products">
+          <Link href="/products">
             <p className={styles.links}>Products</p>
           </Link>
-          <Link href="/CandleCare">
+          <Link href="/care">
             <p className={styles.links}>Candle Care</p>
           </Link>
-          <Link href="/AboutMe">
+          <Link href="/about">
             <p className={styles.links}>About Us</p>
           </Link>
-          <Link href="/Contact">
+          <Link href="/contact">
             <p className={styles.links}>Contact</p>
           </Link>
         </div>
@@ -50,15 +50,15 @@ export default function footer() {
           </motion.div>
         </div>
         <div className={styles.policy}>
-          <Link href="/Terms">
+          <Link href="/terms">
             <p className={styles.links}>Terms and Condition</p>
           </Link>
-          <Link href="/ReturnPolicy">
+          <Link href="/return-policy">
             <p className={styles['links'] + ' ' + styles['refundLinks']}>
               Return Policy
             </p>
           </Link>
-          <Link href="/ShippingPolicy">
+          <Link href="/shipping-policy">
             <p className={styles.links}>Shipping Policy</p>
           </Link>
         </div>

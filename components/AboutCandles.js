@@ -59,7 +59,7 @@ function AboutCandles() {
               </li>
             </ul>
           </div>
-          <Link href="/Products">
+          <Link href="/products">
             <button>Shop My Candles</button>
           </Link>
         </div>

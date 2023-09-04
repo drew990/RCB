@@ -3,7 +3,7 @@ import React from 'react';
 
 import CandleCareCom from '../components/CandleCare';
 
-function CandleCare() {
+function Care() {
   return (
     <div>
       <Head>
@@ -17,4 +17,4 @@ function CandleCare() {
   );
 }
 
-export default CandleCare;
+export default Care;
