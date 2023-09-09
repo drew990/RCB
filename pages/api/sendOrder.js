@@ -13,96 +13,81 @@ const client = new Client({
   environment: Environment.Production,
 });
 
-async function getOrderInfo(orderIDs) {
-  let orderInfo = [];
+async function getOrderInfo(orderIds) {
+  const orderInfo = [];
 
-  // console.log("IN GETORDERINFO (ORDERIDS):", orderIDs);
+  const objectIds = Object.keys(orderIds);
+  const objectsResponse = await client.catalogApi.batchRetrieveCatalogObjects({
+    objectIds: objectIds,
+  });
+  const objects = objectsResponse.result.objects ?? [];
 
-  // Loops through ID and return the needed info
-  for (const [key, value] of Object.entries(orderIDs)) {
-    const response = await client.catalogApi.retrieveCatalogObject(key);
-
-    // Sets the Order
-    let orderDic = {
-      name: response.result.object.itemData.name,
-      quantity: value.toString(),
+  objects.forEach((object) => {
+    orderInfo.push({
+      name: object.itemData?.name,
+      quantity: orderIds[object.id].toString(),
       basePriceMoney: {
         amount: Number(
-          response.result.object.itemData.variations[0].itemVariationData
-            .priceMoney.amount
+          object.itemData.variations[0].itemVariationData.priceMoney.amount
         ),
         currency: 'USD',
       },
-    };
+    });
+  });
 
-    orderInfo.push(orderDic);
-  }
-
-  // console.log(orderInfo);
   return orderInfo;
 }
 
 export default async function handler(req, res) {
-  console.log(req.method);
   if (req.method === 'POST') {
     try {
-      // VARIABLES
-      // ===============
-      // Gets Shipping Info and saves into a var
-      const shippingInfo = req.body;
-      // console.log("REQ BODY", req.body);
-      // Creates var for orders
-      var orderInfo = null;
-      // ===============
+      const { orderIds = {}, idempotency = '' } = req.body ?? {};
 
       // Gets location ID and enter into shipping var
       const response = await client.locationsApi.listLocations();
-      shippingInfo['locationId'] = response.result.locations[0].id;
+      const locationId = response.result.locations?.[0].id;
 
-      try {
-        // Gets Orders Name, quantity, and price
+      // Gets Orders Name, quantity, and price
 
-        var orderInfo = await getOrderInfo(shippingInfo['orderIds']);
-        console.log('OrderInfo After then: ', orderInfo);
+      const orderInfo = await getOrderInfo(orderIds);
+      console.log('OrderInfo After then: ', orderInfo);
 
-        const checkoutLink = await client.checkoutApi.createPaymentLink({
-          // idempotencyKey
-          idempotencyKey: shippingInfo['idempotency'],
-          // Customer Order
-          order: {
-            locationId: shippingInfo['locationId'],
-            // Customer Order Details
-            lineItems: orderInfo,
-            taxes: [
-              {
-                name: 'Sales Tax',
-                percentage: '9.5',
-                scope: 'ORDER',
-              },
-            ],
-          },
-          checkoutOptions: {
-            merchantSupportEmail: 'rcbrilliance@gmail.com',
-            askForShippingAddress: true,
-            shippingFee: {
-              name: 'Shipping Fee',
-              charge: {
-                amount: 700,
-                currency: 'USD',
-              },
+      const checkoutLink = await client.checkoutApi.createPaymentLink({
+        // idempotencyKey
+        idempotencyKey: idempotency,
+        // Customer Order
+        order: {
+          locationId: locationId,
+          // Customer Order Details
+          lineItems: orderInfo,
+          taxes: [
+            {
+              name: 'Sales Tax',
+              percentage: '9.5',
+              scope: 'ORDER',
+            },
+          ],
+        },
+        checkoutOptions: {
+          merchantSupportEmail: 'rcbrilliance@gmail.com',
+          askForShippingAddress: true,
+          shippingFee: {
+            name: 'Shipping Fee',
+            charge: {
+              amount: 700,
+              currency: 'USD',
             },
           },
-        });
+        },
+      });
 
-        res.status(201).json(checkoutLink.result);
-        // res.redirect(checkoutLink.result.paymentLink.url);
+      // DO NOT DELETE
+      // IT IS NEEDED TO CONVERT DATA INTO A JSON
+      BigInt.prototype.toJSON = function () {
+        return this.toString();
+      };
 
-        // console.log(checkoutLink.result.paymentLink.url);
-      } catch (err) {
-        console.log(err);
-      }
-
-      // Sends Order then receives PaymentLink
+      res.status(201).json(checkoutLink.result);
     } catch (err) {
       console.log(err);
     }
