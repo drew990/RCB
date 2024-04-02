@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import AboutProducts from '../components/AboutCandles';
+import Experience from '../components/Experience';
 import FeatureProducts from '../components/FeatureProducts/FeatureProducts';
 import Hero from '../components/Hero/hero';
 import { loadFeatureProducts } from '../lib/LoadFeatureProducts';
@@ -25,6 +26,7 @@ export default function Home({ products }) {
       </Head>
       <Hero />
       <AboutProducts />
+      <Experience />
       <FeatureProducts products={products} />
     </>
   );

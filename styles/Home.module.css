@@ -328,6 +328,13 @@ footer .links:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
 
+/* ABOUT EXPERIENCE */
+.aboutExperienceBackground {
+  background-color: var(--third-Color);
+  color: var(--Third-Text-Color);
+  padding: 2.5rem 0;
+}
+
 /* CANDLE CARE CSS */
 .candleCareBackground {
   background-image: linear-gradient(
